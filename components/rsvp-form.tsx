@@ -25,7 +25,7 @@ function CounterField({
   min: number
 }) {
   return (
-    <div className="flex items-center justify-between py-5 border-b border-[var(--warm-border,oklch(0.882_0.013_72))] last:border-b-0">
+    <div className="flex items-center justify-between py-5 px-3 border-b border-[var(--warm-border,oklch(0.882_0.013_72))] last:border-b-0">
       <div>
         <p className="font-display text-[1.15rem] font-light text-[var(--color-ink)]">{label}</p>
         <p className="text-xs text-[var(--color-stone)] mt-0.5 font-body">{sublabel}</p>
