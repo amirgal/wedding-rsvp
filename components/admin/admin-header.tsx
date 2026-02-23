@@ -19,11 +19,11 @@ export function AdminHeader() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <span className="font-display text-xl font-light italic text-[var(--color-ink)]">
-            Wedding
+            חתונה
           </span>
           <span className="text-[var(--color-warm-border)]">·</span>
           <span className="font-body text-xs tracking-[0.18em] uppercase text-[var(--color-stone)]">
-            Admin
+            ניהול
           </span>
         </div>
 
@@ -33,7 +33,7 @@ export function AdminHeader() {
                      transition-colors font-body"
         >
           <LogOut className="w-3.5 h-3.5" />
-          Sign out
+          יציאה
         </button>
       </div>
     </header>

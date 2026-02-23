@@ -33,13 +33,13 @@ export default function AdminPage() {
   }, [])
 
   const tabs: { id: Tab; label: string; count?: number }[] = [
-    { id: 'invitees', label: 'Invitees', count: invites.length },
+    { id: 'invitees', label: 'מוזמנים', count: invites.length },
     {
       id: 'responses',
-      label: 'Responses',
+      label: 'תשובות',
       count: stats ? stats.submitted + stats.edited : undefined,
     },
-    { id: 'statistics', label: 'Statistics' },
+    { id: 'statistics', label: 'סטטיסטיקה' },
   ]
 
   return (
@@ -50,10 +50,10 @@ export default function AdminPage() {
         {/* Page title */}
         <div className="mb-8">
           <h1 className="font-display text-3xl font-light italic text-[var(--color-ink)]">
-            Dashboard
+            לוח בקרה
           </h1>
           <p className="font-body text-sm text-[var(--color-stone)] mt-1">
-            Manage your wedding invitations and track RSVPs.
+            נהל את הזמנות החתונה שלך וועקוב אחרי תשובות.
           </p>
         </div>
 
@@ -61,10 +61,10 @@ export default function AdminPage() {
         {stats && (
           <div className="grid grid-cols-4 gap-3 mb-8">
             {[
-              { label: 'Invited', value: stats.totalInvited },
-              { label: 'Opened', value: stats.opened, color: 'text-amber-600' },
-              { label: 'Responded', value: stats.submitted + stats.edited, color: 'text-emerald-700' },
-              { label: 'Attending', value: stats.totalAdults + stats.totalKids, color: 'text-[var(--color-forest)]' },
+              { label: 'מוזמנים', value: stats.totalInvited },
+              { label: 'נפתח', value: stats.opened, color: 'text-amber-600' },
+              { label: 'ענו', value: stats.submitted + stats.edited, color: 'text-emerald-700' },
+              { label: 'חוזרים', value: stats.totalAdults + stats.totalKids, color: 'text-[var(--color-forest)]' },
             ].map((s) => (
               <div
                 key={s.label}

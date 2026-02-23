@@ -63,27 +63,27 @@ function HistoryModal({
           {current ? (
             <section>
               <p className="font-body text-[0.65rem] tracking-[0.15em] uppercase text-[var(--color-stone)] mb-3">
-                Current response
+                תשובה נוכחית
               </p>
               <div className="bg-[var(--color-parchment)] rounded-lg p-4 space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="font-body text-[var(--color-stone)]">Attending</span>
+                  <span className="font-body text-[var(--color-stone)]">חוזר/חוזרת</span>
                   <span className="font-body font-medium text-[var(--color-ink)]">
-                    {current.attending ? 'Yes' : 'No'}
+                    {current.attending ? 'כן' : 'לא'}
                   </span>
                 </div>
                 {current.attending && (
                   <>
                     <div className="flex justify-between text-sm">
-                      <span className="font-body text-[var(--color-stone)]">Adults (7+)</span>
+                      <span className="font-body text-[var(--color-stone)]">מבוגרים (7+)</span>
                       <span className="font-body font-medium text-[var(--color-ink)]">{current.adult_count}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="font-body text-[var(--color-stone)]">Children (2–7)</span>
+                      <span className="font-body text-[var(--color-stone)]">ילדים (2–7)</span>
                       <span className="font-body font-medium text-[var(--color-ink)]">{current.kid_count}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="font-body text-[var(--color-stone)]">Total guests</span>
+                      <span className="font-body text-[var(--color-stone)]">סה״כ אורחים</span>
                       <span className="font-display text-lg font-light text-[var(--color-forest)]">
                         {current.adult_count + current.kid_count}
                       </span>
@@ -91,19 +91,19 @@ function HistoryModal({
                   </>
                 )}
                 <p className="text-xs text-[var(--color-stone)] font-body pt-1 border-t border-[var(--color-warm-border)]">
-                  Last updated {formatDate(current.updated_at)}
+                  עודכן לאחרונה {formatDate(current.updated_at)}
                 </p>
               </div>
             </section>
           ) : (
-            <p className="text-sm text-[var(--color-stone)] italic font-body">No response yet.</p>
+            <p className="text-sm text-[var(--color-stone)] italic font-body">אין תשובה עדיין.</p>
           )}
 
           {/* History */}
           {history.length > 0 && (
             <section>
               <p className="font-body text-[0.65rem] tracking-[0.15em] uppercase text-[var(--color-stone)] mb-3">
-                Submission history ({history.length})
+                היסטוריית הגשות ({history.length})
               </p>
               <div className="space-y-2">
                 {history.map((h: ResponseHistory, i: number) => (
@@ -121,17 +121,17 @@ function HistoryModal({
                     </div>
                     <div className="space-y-1">
                       <div className="flex justify-between">
-                        <span className="text-[var(--color-stone)] font-body">Attending</span>
-                        <span className="font-body text-[var(--color-ink)]">{h.attending ? 'Yes' : 'No'}</span>
+                        <span className="text-[var(--color-stone)] font-body">חוזר/חוזרת</span>
+                        <span className="font-body text-[var(--color-ink)]">{h.attending ? 'כן' : 'לא'}</span>
                       </div>
                       {h.attending && (
                         <>
                           <div className="flex justify-between">
-                            <span className="text-[var(--color-stone)] font-body">Adults</span>
+                            <span className="text-[var(--color-stone)] font-body">מבוגרים</span>
                             <span className="font-body text-[var(--color-ink)]">{h.adult_count}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-[var(--color-stone)] font-body">Children</span>
+                            <span className="text-[var(--color-stone)] font-body">ילדים</span>
                             <span className="font-body text-[var(--color-ink)]">{h.kid_count}</span>
                           </div>
                         </>
@@ -181,10 +181,10 @@ export function ResponsesTab({ invites, loading }: ResponsesTabProps) {
     return (
       <div className="text-center py-20">
         <p className="font-display text-2xl font-light italic text-[var(--color-stone)]">
-          No responses yet.
+          אין תשובות עדיין.
         </p>
         <p className="font-body text-sm text-[var(--color-stone)] mt-2">
-          Responses will appear here once invitees submit their RSVP.
+          תשובות יופיעו כאן כאשר המוזמנים יגישו את תשובתם.
         </p>
       </div>
     )
@@ -196,13 +196,13 @@ export function ResponsesTab({ invites, loading }: ResponsesTabProps) {
         <table className="w-full admin-table">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Phone</th>
-              <th>Attending</th>
-              <th>Adults</th>
-              <th>Children</th>
-              <th>Status</th>
-              <th>Submitted</th>
+              <th>שם</th>
+              <th>טלפון</th>
+              <th>חוזר/חוזרת</th>
+              <th>מבוגרים</th>
+              <th>ילדים</th>
+              <th>סטטוס</th>
+              <th>הוגש</th>
             </tr>
           </thead>
           <tbody>
@@ -213,14 +213,14 @@ export function ResponsesTab({ invites, loading }: ResponsesTabProps) {
                   key={invite.id}
                   onClick={() => handleRowClick(invite)}
                   className="cursor-pointer"
-                  title="Click to view full history"
+                  title="לחץ כדי להציג היסטוריה מלאה"
                 >
                   <td className="font-medium">{invite.name}</td>
                   <td className="text-[var(--color-stone)]">{invite.phone ?? '—'}</td>
                   <td>
                     {r ? (
                       <span className={r.attending ? 'text-emerald-700' : 'text-stone-500'}>
-                        {r.attending ? 'Yes' : 'No'}
+                        {r.attending ? 'כן' : 'לא'}
                       </span>
                     ) : '—'}
                   </td>
@@ -240,7 +240,7 @@ export function ResponsesTab({ invites, loading }: ResponsesTabProps) {
       {detailLoading && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/10">
           <div className="bg-white rounded-lg px-8 py-6 shadow-lg border border-[var(--color-warm-border)]">
-            <p className="font-body text-sm text-[var(--color-stone)]">Loading…</p>
+            <p className="font-body text-sm text-[var(--color-stone)]">טוען…</p>
           </div>
         </div>
       )}

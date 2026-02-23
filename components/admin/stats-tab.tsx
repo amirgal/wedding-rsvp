@@ -59,26 +59,26 @@ export function StatsTab({ stats, loading }: StatsTabProps) {
       {/* Response status */}
       <section>
         <h2 className="font-body text-[0.68rem] tracking-[0.18em] uppercase text-[var(--color-stone)] mb-4">
-          Invite status
+          סטטוס הזמנה
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <StatCard label="Total invited" value={stats.totalInvited} />
-          <StatCard label="Pending" value={stats.pending} description="Not yet opened" />
-          <StatCard label="Opened" value={stats.opened} accent="text-amber-600" description="Viewed, not submitted" />
-          <StatCard label="Responded" value={totalResponded} accent="text-emerald-700" description="Submitted or edited" />
+          <StatCard label="סה״כ מוזמנים" value={stats.totalInvited} />
+          <StatCard label="ממתין" value={stats.pending} description="עדיין לא נפתח" />
+          <StatCard label="נפתח" value={stats.opened} accent="text-amber-600" description="נראה, לא הוגש" />
+          <StatCard label="ענו" value={totalResponded} accent="text-emerald-700" description="הוגש או עודכן" />
         </div>
       </section>
 
       {/* Attendance */}
       <section>
         <h2 className="font-body text-[0.68rem] tracking-[0.18em] uppercase text-[var(--color-stone)] mb-4">
-          Attendance
+          נוכחות
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <StatCard label="Adults" value={stats.totalAdults} accent="text-[var(--color-forest)]" description="Age 7+" />
-          <StatCard label="Children" value={stats.totalKids} accent="text-[var(--color-forest)]" description="Ages 2–7" />
-          <StatCard label="Total attending" value={totalAttending} accent="text-[var(--color-forest)]" />
-          <StatCard label="Not attending" value={stats.totalNotAttending} accent="text-stone-500" />
+          <StatCard label="מבוגרים" value={stats.totalAdults} accent="text-[var(--color-forest)]" description="גיל 7+" />
+          <StatCard label="ילדים" value={stats.totalKids} accent="text-[var(--color-forest)]" description="גילאים 2–7" />
+          <StatCard label="סה״כ חוזרים" value={totalAttending} accent="text-[var(--color-forest)]" />
+          <StatCard label="לא חוזרים" value={stats.totalNotAttending} accent="text-stone-500" />
         </div>
       </section>
 
@@ -86,10 +86,10 @@ export function StatsTab({ stats, loading }: StatsTabProps) {
       {stats.edited > 0 && (
         <section>
           <h2 className="font-body text-[0.68rem] tracking-[0.18em] uppercase text-[var(--color-stone)] mb-4">
-            Changes
+            שינויים
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <StatCard label="Edited responses" value={stats.edited} accent="text-sky-700" description="Updated after initial submission" />
+            <StatCard label="תשובות מעודכנות" value={stats.edited} accent="text-sky-700" description="עודכן לאחר ההגשה הראשונית" />
           </div>
         </section>
       )}

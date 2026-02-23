@@ -8,7 +8,7 @@ import type { InviteWithResponse } from '@/lib/types'
 import { Trash2, Plus, Upload, UserPlus } from 'lucide-react'
 
 const DEFAULT_TEMPLATE =
-  'Dear {{name}},\n\nWe joyfully invite you to join us on our special day. Please use the link below to RSVP:\n\n{{link}}\n\nWith love,'
+  '{{name}} היקר/ה,\n\nאנחנו שמחים להזמין אותך להשתתף בנו ביום המיוחד שלנו. אנא השתמש בקישור למטה כדי להשיב:\n\n{{link}}\n\nבחום,'
 
 interface InviteesTabProps {
   invites: InviteWithResponse[]
@@ -42,19 +42,19 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
         toast.error(data.error)
         return
       }
-      toast.success(`${name.trim()} added.`)
+      toast.success(`${name.trim()} נוסף.`)
       setName('')
       setPhone('')
       onRefresh()
     } catch {
-      toast.error('Failed to add invitee.')
+      toast.error('נכשל בהוספת המוזמן.')
     } finally {
       setAddLoading(false)
     }
   }
 
   const handleDelete = async (id: string, inviteName: string) => {
-    if (!confirm(`Remove ${inviteName} from the invite list?`)) return
+    if (!confirm(`הסר את ${inviteName} מרשימת ההזמנות?`)) return
     setDeleteLoading(id)
     try {
       const res = await fetch(`/api/invites/${id}`, { method: 'DELETE' })
@@ -63,10 +63,10 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
         toast.error(data.error)
         return
       }
-      toast.success(`${inviteName} removed.`)
+      toast.success(`${inviteName} הוסר.`)
       onRefresh()
     } catch {
-      toast.error('Failed to remove invitee.')
+      toast.error('נכשל בהסרת המוזמן.')
     } finally {
       setDeleteLoading(null)
     }
@@ -85,10 +85,10 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
         toast.error(data.error)
         return
       }
-      toast.success(`Imported ${data.data.imported} invitee${data.data.imported !== 1 ? 's' : ''}.`)
+      toast.success(`יובאו ${data.data.imported} מוזמנ${data.data.imported !== 1 ? 'ים' : 'ה'}.`)
       onRefresh()
     } catch {
-      toast.error('Import failed.')
+      toast.error('הייבוא נכשל.')
     } finally {
       setImportLoading(false)
       if (fileInputRef.current) fileInputRef.current.value = ''
@@ -105,7 +105,7 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
       {/* Message template */}
       <section className="bg-white border border-[var(--color-warm-border)] rounded-xl p-6">
         <h2 className="font-body text-[0.68rem] tracking-[0.18em] uppercase text-[var(--color-stone)] mb-4">
-          Message template
+          תבנית הודעה
         </h2>
         <textarea
           value={template}
@@ -115,10 +115,10 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
                      rounded-lg font-body text-sm text-[var(--color-ink)] resize-none
                      focus:outline-none focus:border-[var(--color-forest)] focus:ring-1
                      focus:ring-[var(--color-forest)] transition-colors leading-relaxed"
-          placeholder="Write your message..."
+          placeholder="כתוב את ההודעה שלך..."
         />
         <div className="mt-3 flex gap-3 flex-wrap">
-          <span className="font-body text-xs text-[var(--color-stone)]">Available variables:</span>
+          <span className="font-body text-xs text-[var(--color-stone)]">משתנים זמינים:</span>
           {['{{name}}', '{{link}}'].map((v) => (
             <button
               key={v}
@@ -143,13 +143,13 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
         >
           <h2 className="font-body text-[0.68rem] tracking-[0.18em] uppercase text-[var(--color-stone)] mb-4 flex items-center gap-2">
             <UserPlus className="w-3.5 h-3.5" />
-            Add invitee
+            הוסף מוזמן
           </h2>
           <div className="space-y-3">
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Full name *"
+              placeholder="שם מלא *"
               required
               className="w-full px-4 py-2.5 bg-[var(--color-parchment)] border border-[var(--color-warm-border)]
                          rounded-lg font-body text-sm text-[var(--color-ink)] placeholder:text-[var(--color-stone)]/50
@@ -158,7 +158,7 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
             <input
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              placeholder="Phone (optional)"
+              placeholder="טלפון (אופציונלי)"
               className="w-full px-4 py-2.5 bg-[var(--color-parchment)] border border-[var(--color-warm-border)]
                          rounded-lg font-body text-sm text-[var(--color-ink)] placeholder:text-[var(--color-stone)]/50
                          focus:outline-none focus:border-[var(--color-forest)] focus:ring-1 focus:ring-[var(--color-forest)] transition-colors"
@@ -171,7 +171,7 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
                          transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Plus className="w-4 h-4" />
-              {addLoading ? 'Adding…' : 'Add'}
+              {addLoading ? 'מוסיף…' : 'הוסף'}
             </button>
           </div>
         </form>
@@ -180,12 +180,12 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
         <div className="flex-1 bg-white border border-[var(--color-warm-border)] rounded-xl p-5 flex flex-col">
           <h2 className="font-body text-[0.68rem] tracking-[0.18em] uppercase text-[var(--color-stone)] mb-4 flex items-center gap-2">
             <Upload className="w-3.5 h-3.5" />
-            Bulk import
+            ייבוא בכמות
           </h2>
           <p className="font-body text-xs text-[var(--color-stone)] mb-4 leading-relaxed">
-            Upload an <strong>.xlsx</strong> file with columns{' '}
+            העלה קובץ <strong>.xlsx</strong> עם עמודות{' '}
             <code className="bg-[var(--color-parchment)] px-1.5 py-0.5 rounded text-[0.7rem]">name</code>{' '}
-            and optionally{' '}
+            וברירה{' '}
             <code className="bg-[var(--color-parchment)] px-1.5 py-0.5 rounded text-[0.7rem]">phone</code>.
           </p>
           <div className="mt-auto">
@@ -205,7 +205,7 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
                          cursor-pointer ${importLoading ? 'opacity-50 pointer-events-none' : ''}`}
             >
               <Upload className="w-4 h-4" />
-              {importLoading ? 'Importing…' : 'Choose file'}
+              {importLoading ? 'מייבא…' : 'בחר קובץ'}
             </label>
           </div>
         </div>
@@ -215,7 +215,7 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
       <section>
         <div className="flex items-center justify-between mb-4">
           <h2 className="font-body text-[0.68rem] tracking-[0.18em] uppercase text-[var(--color-stone)]">
-            Invitees ({invites.length})
+            מוזמנים ({invites.length})
           </h2>
         </div>
 
@@ -228,10 +228,10 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
         ) : invites.length === 0 ? (
           <div className="text-center py-16 bg-white border border-[var(--color-warm-border)] rounded-xl">
             <p className="font-display text-2xl font-light italic text-[var(--color-stone)]">
-              No invitees yet.
+              אין מוזמנים עדיין.
             </p>
             <p className="font-body text-sm text-[var(--color-stone)] mt-2">
-              Add invitees above or import from a spreadsheet.
+              הוסף מוזמנים למעלה או ייבא מגיליון אלקטרוני.
             </p>
           </div>
         ) : (
@@ -239,12 +239,12 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
             <table className="w-full admin-table">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Phone</th>
-                  <th>Status</th>
-                  <th>Attending</th>
-                  <th>Link</th>
-                  <th>Message</th>
+                  <th>שם</th>
+                  <th>טלפון</th>
+                  <th>סטטוס</th>
+                  <th>חוזר/חוזרת</th>
+                  <th>קישור</th>
+                  <th>הודעה</th>
                   <th></th>
                 </tr>
               </thead>
@@ -260,8 +260,8 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
                         {r ? (
                           <span className={r.attending ? 'text-emerald-700 text-sm' : 'text-stone-500 text-sm'}>
                             {r.attending
-                              ? `Yes (${r.adult_count}A${r.kid_count > 0 ? ` · ${r.kid_count}K` : ''})`
-                              : 'No'}
+                              ? `כן (${r.adult_count}מ${r.kid_count > 0 ? ` · ${r.kid_count}י` : ''})`
+                              : 'לא'}
                           </span>
                         ) : (
                           <span className="text-[var(--color-stone)] text-sm">—</span>
@@ -275,14 +275,14 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
                           onClick={() => {
                             const msg = getMessagePreview(invite)
                             navigator.clipboard.writeText(msg)
-                            toast.success('Message copied to clipboard.')
+                            toast.success('ההודעה הועתקה ללוח העריכה.')
                           }}
                           className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-body
                                      text-[var(--color-stone)] border border-[var(--color-warm-border)]
                                      rounded-md hover:border-[var(--color-forest)] hover:text-[var(--color-forest)]
                                      transition-colors"
                         >
-                          Copy message
+                          העתק הודעה
                         </button>
                       </td>
                       <td>
@@ -291,7 +291,7 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
                           disabled={deleteLoading === invite.id}
                           className="p-1.5 text-[var(--color-stone)] hover:text-red-600 transition-colors
                                      disabled:opacity-40"
-                          title="Delete invitee"
+                          title="מחק מוזמן"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>

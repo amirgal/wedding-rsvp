@@ -22,7 +22,7 @@ function LoginForm() {
     const { error } = await supabase.auth.signInWithPassword({ email, password })
 
     if (error) {
-      setError('Invalid email or password.')
+      setError('דוא״ל או סיסמה לא תקינים.')
       setLoading(false)
       return
     }
@@ -38,10 +38,10 @@ function LoginForm() {
         {/* Logo / Title */}
         <div className="mb-10">
           <p className="font-body text-[0.65rem] tracking-[0.3em] uppercase text-[var(--color-stone)] mb-3 animate-fade-in">
-            Admin
+            ניהול
           </p>
           <h1 className="font-display text-4xl font-light italic text-[var(--color-ink)] animate-fade-up">
-            Sign in
+            כניסה
           </h1>
           <div className="mt-4 h-px w-10 bg-[var(--color-forest)] opacity-60 animate-line-grow delay-200" />
         </div>
@@ -52,7 +52,7 @@ function LoginForm() {
               htmlFor="email"
               className="font-body text-[0.72rem] tracking-wide text-[var(--color-stone)] uppercase"
             >
-              Email
+              דוא״ל
             </label>
             <input
               id="email"
@@ -74,7 +74,7 @@ function LoginForm() {
               htmlFor="password"
               className="font-body text-[0.72rem] tracking-wide text-[var(--color-stone)] uppercase"
             >
-              Password
+              סיסמה
             </label>
             <input
               id="password"
@@ -102,7 +102,7 @@ function LoginForm() {
                        text-sm tracking-wide rounded-md hover:bg-[oklch(0.33_0.065_152)]
                        transition-colors disabled:opacity-60 disabled:cursor-not-allowed mt-2"
           >
-            {loading ? 'Signing in…' : 'Sign in'}
+            {loading ? 'נכנסים…' : 'כניסה'}
           </button>
         </form>
       </div>

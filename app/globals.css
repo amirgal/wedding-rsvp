@@ -181,15 +181,21 @@
 }
 
 /* ─── Admin table ─────────────────────────────────────────────── */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
 .admin-table th {
   font-size: 0.68rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: oklch(0.52 0.022 60);
   padding: 0.75rem 1rem;
   border-bottom: 1px solid oklch(0.882 0.013 72);
-  text-align: left;
+  text-align: center;
+  vertical-align: middle;
   white-space: nowrap;
 }
 .admin-table td {
@@ -197,7 +203,13 @@
   border-bottom: 1px solid oklch(0.95 0.007 72);
   font-size: 0.875rem;
   color: oklch(0.16 0.012 60);
+  text-align: center;
   vertical-align: middle;
+}
+/* Action columns (last column) - minimize width */
+.admin-table th:last-child,
+.admin-table td:last-child {
+  padding: 0.875rem 0.5rem;
 }
 .admin-table tr:last-child td { border-bottom: none; }
 .admin-table tbody tr { transition: background 0.12s; cursor: default; }
