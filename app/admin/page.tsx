@@ -63,8 +63,8 @@ export default function AdminPage() {
             {[
               { label: 'מוזמנים', value: stats.totalInvited },
               { label: 'נפתח', value: stats.opened, color: 'text-amber-600' },
-              { label: 'ענו', value: stats.submitted + stats.edited, color: 'text-emerald-700' },
-              { label: 'חוזרים', value: stats.totalAdults + stats.totalKids, color: 'text-[var(--color-forest)]' },
+              { label: 'הגיבו', value: stats.submitted + stats.edited, color: 'text-emerald-700' },
+              { label: 'מגיעים', value: stats.totalAdults + stats.totalKids, color: 'text-[var(--color-forest)]' },
             ].map((s) => (
               <div
                 key={s.label}
@@ -89,7 +89,7 @@ export default function AdminPage() {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`
-                  font-body text-sm pb-3 border-b-2 transition-colors whitespace-nowrap flex items-center gap-2
+                  font-body text-sm pb-3 border-b-2 transition-colors whitespace-nowrap flex items-center gap-2 cursor-pointer
                   ${
                     activeTab === tab.id
                       ? 'border-[var(--color-forest)] text-[var(--color-forest)] font-medium'

@@ -67,7 +67,7 @@ function HistoryModal({
               </p>
               <div className="bg-[var(--color-parchment)] rounded-lg p-4 space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="font-body text-[var(--color-stone)]">חוזר/חוזרת</span>
+                  <span className="font-body text-[var(--color-stone)]">מגיע/מגיעה</span>
                   <span className="font-body font-medium text-[var(--color-ink)]">
                     {current.attending ? 'כן' : 'לא'}
                   </span>
@@ -121,7 +121,7 @@ function HistoryModal({
                     </div>
                     <div className="space-y-1">
                       <div className="flex justify-between">
-                        <span className="text-[var(--color-stone)] font-body">חוזר/חוזרת</span>
+                        <span className="text-[var(--color-stone)] font-body">מגיע/מגיעה</span>
                         <span className="font-body text-[var(--color-ink)]">{h.attending ? 'כן' : 'לא'}</span>
                       </div>
                       {h.attending && (
@@ -198,7 +198,7 @@ export function ResponsesTab({ invites, loading }: ResponsesTabProps) {
             <tr>
               <th>שם</th>
               <th>טלפון</th>
-              <th>חוזר/חוזרת</th>
+              <th>מגיע/מגיעה</th>
               <th>מבוגרים</th>
               <th>ילדים</th>
               <th>סטטוס</th>

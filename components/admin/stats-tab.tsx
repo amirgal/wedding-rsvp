@@ -65,7 +65,7 @@ export function StatsTab({ stats, loading }: StatsTabProps) {
           <StatCard label="סה״כ מוזמנים" value={stats.totalInvited} />
           <StatCard label="ממתין" value={stats.pending} description="עדיין לא נפתח" />
           <StatCard label="נפתח" value={stats.opened} accent="text-amber-600" description="נראה, לא הוגש" />
-          <StatCard label="ענו" value={totalResponded} accent="text-emerald-700" description="הוגש או עודכן" />
+          <StatCard label="הגיבו" value={totalResponded} accent="text-emerald-700" description="הוגש או עודכן" />
         </div>
       </section>
 
@@ -77,8 +77,8 @@ export function StatsTab({ stats, loading }: StatsTabProps) {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           <StatCard label="מבוגרים" value={stats.totalAdults} accent="text-[var(--color-forest)]" description="גיל 7+" />
           <StatCard label="ילדים" value={stats.totalKids} accent="text-[var(--color-forest)]" description="גילאים 2–7" />
-          <StatCard label="סה״כ חוזרים" value={totalAttending} accent="text-[var(--color-forest)]" />
-          <StatCard label="לא חוזרים" value={stats.totalNotAttending} accent="text-stone-500" />
+          <StatCard label="סה״כ מגיעים" value={totalAttending} accent="text-[var(--color-forest)]" />
+          <StatCard label="לא מגיעים" value={stats.totalNotAttending} accent="text-stone-500" />
         </div>
       </section>
 

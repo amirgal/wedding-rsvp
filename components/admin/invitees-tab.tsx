@@ -242,7 +242,7 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
                   <th>שם</th>
                   <th>טלפון</th>
                   <th>סטטוס</th>
-                  <th>חוזר/חוזרת</th>
+                  <th>מגיע/מגיעה</th>
                   <th>קישור</th>
                   <th>הודעה</th>
                   <th></th>

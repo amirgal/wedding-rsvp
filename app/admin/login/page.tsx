@@ -100,7 +100,7 @@ function LoginForm() {
             disabled={loading}
             className="w-full py-3.5 bg-[var(--color-forest)] text-white font-body font-medium
                        text-sm tracking-wide rounded-md hover:bg-[oklch(0.33_0.065_152)]
-                       transition-colors disabled:opacity-60 disabled:cursor-not-allowed mt-2"
+                       transition-colors disabled:opacity-60 disabled:cursor-not-allowed mt-2 cursor-pointer"
           >
             {loading ? 'נכנסים…' : 'כניסה'}
           </button>

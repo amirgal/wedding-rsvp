@@ -143,7 +143,7 @@ export function RsvpForm({ inviteId, token, existingResponse, isEditing }: RsvpF
           disabled={!!loading}
           className="w-full py-4 px-6 bg-[var(--color-forest)] text-white font-body font-medium
                      tracking-wide rounded-lg hover:bg-[oklch(0.33_0.065_152)] transition-colors
-                     disabled:opacity-60 disabled:cursor-not-allowed text-sm"
+                     disabled:opacity-60 disabled:cursor-not-allowed text-sm cursor-pointer"
         >
           {loading === 'attending' ? 'שומר...' : isEditing ? 'עדכון אישור' : 'אישור הגעה'}
         </button>
@@ -152,7 +152,7 @@ export function RsvpForm({ inviteId, token, existingResponse, isEditing }: RsvpF
           onClick={() => submit(false)}
           disabled={!!loading}
           className="w-full py-3 px-6 text-[var(--color-stone)] font-body font-normal text-sm
-                     hover:text-[var(--color-ink)] transition-colors disabled:opacity-50"
+                     hover:text-[var(--color-ink)] transition-colors disabled:opacity-50 cursor-pointer"
         >
           {loading === 'not-attending' ? 'שומר...' : 'לא אוכל להגיע'}
         </button>
