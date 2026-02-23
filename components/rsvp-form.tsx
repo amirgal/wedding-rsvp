@@ -25,7 +25,7 @@ function CounterField({
   min: number
 }) {
   return (
-    <div className="flex items-center justify-between py-5 px-3 border-b border-[var(--warm-border,oklch(0.882_0.013_72))] last:border-b-0">
+    <div className="flex items-center justify-between py-5 px-5 border-b border-[var(--warm-border,oklch(0.882_0.013_72))] last:border-b-0">
       <div>
         <p className="font-display text-[1.15rem] font-light text-[var(--color-ink)]">{label}</p>
         <p className="text-xs text-[var(--color-stone)] mt-0.5 font-body">{sublabel}</p>
@@ -59,11 +59,17 @@ function CounterField({
 export function RsvpForm({ inviteId, token, existingResponse, isEditing }: RsvpFormProps) {
   const [adultCount, setAdultCount] = useState(existingResponse?.adult_count ?? 1)
   const [kidCount, setKidCount] = useState(existingResponse?.kid_count ?? 0)
+  const [veganCount, setVeganCount] = useState(existingResponse?.vegan_count ?? 0)
+  const [glutenFreeCount, setGlutenFreeCount] = useState(existingResponse?.gluten_free_count ?? 0)
   const [loading, setLoading] = useState<'attending' | 'not-attending' | null>(null)
   const [submitted, setSubmitted] = useState(false)
   const [didNotAttend, setDidNotAttend] = useState(
     existingResponse ? !existingResponse.attending : false
   )
+
+  const totalGuests = adultCount + kidCount
+  const maxVegan = Math.min(veganCount, totalGuests)
+  const maxGlutenFree = Math.min(glutenFreeCount, totalGuests)
 
   const submit = async (attending: boolean) => {
     setLoading(attending ? 'attending' : 'not-attending')
@@ -72,7 +78,14 @@ export function RsvpForm({ inviteId, token, existingResponse, isEditing }: RsvpF
       const res = await fetch('/api/rsvp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ token, attending, adult_count: adultCount, kid_count: kidCount }),
+        body: JSON.stringify({
+          token,
+          attending,
+          adult_count: adultCount,
+          kid_count: kidCount,
+          vegan_count: attending ? maxVegan : 0,
+          gluten_free_count: attending ? maxGlutenFree : 0,
+        }),
       })
       const data = await res.json()
 
@@ -133,6 +146,21 @@ export function RsvpForm({ inviteId, token, existingResponse, isEditing }: RsvpF
           sublabel="גילאי 2–7"
           value={kidCount}
           onChange={setKidCount}
+          min={0}
+        />
+
+        <CounterField
+          label="טבעוני"
+          sublabel={`מס טבעונים (עד ${totalGuests})`}
+          value={maxVegan}
+          onChange={(v) => setVeganCount(Math.min(v, totalGuests))}
+          min={0}
+        />
+        <CounterField
+          label="רגיש לגלוטן"
+          sublabel={`מס רגישים לגלוטן (עד ${totalGuests})`}
+          value={maxGlutenFree}
+          onChange={(v) => setGlutenFreeCount(Math.min(v, totalGuests))}
           min={0}
         />
       </div>

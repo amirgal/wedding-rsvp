@@ -14,7 +14,7 @@ export async function GET() {
 
   const [{ data: invites }, { data: responses }] = await Promise.all([
     supabase.from('invites').select('status'),
-    supabase.from('responses').select('attending, adult_count, kid_count'),
+    supabase.from('responses').select('attending, adult_count, kid_count, vegan_count, gluten_free_count'),
   ])
 
   const stats: Stats = {
@@ -30,6 +30,14 @@ export async function GET() {
       responses
         ?.filter((r) => r.attending)
         .reduce((sum, r) => sum + (r.kid_count ?? 0), 0) ?? 0,
+    totalVegan:
+      responses
+        ?.filter((r) => r.attending)
+        .reduce((sum, r) => sum + (r.vegan_count ?? 0), 0) ?? 0,
+    totalGlutenFree:
+      responses
+        ?.filter((r) => r.attending)
+        .reduce((sum, r) => sum + (r.gluten_free_count ?? 0), 0) ?? 0,
     totalNotAttending: responses?.filter((r) => !r.attending).length ?? 0,
     totalInvited: invites?.length ?? 0,
   }

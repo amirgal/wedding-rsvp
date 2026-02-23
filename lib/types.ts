@@ -15,6 +15,8 @@ export interface Response {
   attending: boolean
   adult_count: number
   kid_count: number
+  vegan_count: number
+  gluten_free_count: number
   submitted_at: string
   updated_at: string
 }
@@ -25,6 +27,8 @@ export interface ResponseHistory {
   attending: boolean
   adult_count: number
   kid_count: number
+  vegan_count: number
+  gluten_free_count: number
   submitted_at: string
 }
 
@@ -61,6 +65,8 @@ export interface Stats {
   edited: number
   totalAdults: number
   totalKids: number
+  totalVegan: number
+  totalGlutenFree: number
   totalNotAttending: number
   totalInvited: number
 }

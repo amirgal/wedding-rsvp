@@ -82,6 +82,19 @@ export function StatsTab({ stats, loading }: StatsTabProps) {
         </div>
       </section>
 
+      {/* Dietary preferences */}
+      {(stats.totalVegan > 0 || stats.totalGlutenFree > 0) && (
+        <section>
+          <h2 className="font-body text-[0.68rem] tracking-[0.18em] uppercase text-[var(--color-stone)] mb-4">
+            הפסידות תזונה
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <StatCard label="טבעונים" value={stats.totalVegan} accent="text-green-700" description="המוכרזים כטבעונים" />
+            <StatCard label="רגישים לגלוטן" value={stats.totalGlutenFree} accent="text-blue-700" description="רגישים לגלוטן" />
+          </div>
+        </section>
+      )}
+
       {/* Edited */}
       {stats.edited > 0 && (
         <section>
