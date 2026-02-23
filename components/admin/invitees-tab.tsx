@@ -235,7 +235,7 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
             </p>
           </div>
         ) : (
-          <div className="bg-white border border-[var(--color-warm-border)] rounded-xl overflow-hidden">
+          <div className="bg-white border border-[var(--color-warm-border)] rounded-xl overflow-x-auto">
             <table className="w-full admin-table">
               <thead>
                 <tr>
