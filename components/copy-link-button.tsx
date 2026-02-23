@@ -18,7 +18,7 @@ export function CopyLinkButton({ token }: { token: string }) {
       onClick={handleCopy}
       className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-body text-[var(--color-stone)]
                  border border-[var(--color-warm-border)] rounded-md hover:border-[var(--color-forest)]
-                 hover:text-[var(--color-forest)] transition-colors"
+                 hover:text-[var(--color-forest)] transition-colors cursor-pointer"
       title="Copy invite link"
     >
       {copied ? (

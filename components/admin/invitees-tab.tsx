@@ -168,7 +168,7 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
               disabled={addLoading || !name.trim()}
               className="w-full flex items-center justify-center gap-2 py-2.5 bg-[var(--color-forest)] text-white
                          font-body text-sm font-medium rounded-lg hover:bg-[oklch(0.33_0.065_152)]
-                         transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                         transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
             >
               <Plus className="w-4 h-4" />
               {addLoading ? 'מוסיף…' : 'הוסף'}
@@ -280,7 +280,7 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
                           className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-body
                                      text-[var(--color-stone)] border border-[var(--color-warm-border)]
                                      rounded-md hover:border-[var(--color-forest)] hover:text-[var(--color-forest)]
-                                     transition-colors"
+                                     transition-colors cursor-pointer"
                         >
                           העתק הודעה
                         </button>
@@ -290,7 +290,7 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
                           onClick={() => handleDelete(invite.id, invite.name)}
                           disabled={deleteLoading === invite.id}
                           className="p-1.5 text-[var(--color-stone)] hover:text-red-600 transition-colors
-                                     disabled:opacity-40"
+                                     disabled:opacity-40 cursor-pointer"
                           title="מחק מוזמן"
                         >
                           <Trash2 className="w-4 h-4" />
