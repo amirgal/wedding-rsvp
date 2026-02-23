@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm run dev      # Start dev server (http://localhost:3000)
+npm run dev      # Start dev server (http://localhost:3030)
 npm run build    # Production build — run this to verify TypeScript + compilation
 npm run lint     # ESLint
 ```
@@ -56,7 +56,7 @@ SQL migrations are in `supabase/migrations/` — run them manually in the Supaba
 
 ### Fonts & Styling
 
-Custom fonts defined in `lib/fonts.ts` (Cormorant Garamond + DM Sans), applied as CSS variables `--font-display-var` and `--font-body-var` via the root layout. Use `font-display` and `font-body` CSS classes (defined in `globals.css`) rather than Tailwind font utilities.
+Custom fonts defined in `lib/fonts.ts` (Heebo Bold/Black for display + Heebo Light/Regular for body + Varela Round for accents), applied as CSS variables `--font-display-var`, `--font-body-var`, and `--font-accent-var` via the root layout. Use `font-display`, `font-body`, and `font-accent` CSS classes (defined in `globals.css`) rather than Tailwind font utilities. Single font family (Heebo) provides clean hierarchy through weight variation.
 
 CSS custom properties for the "Garden Letter" palette: `--color-cream`, `--color-parchment`, `--color-ink`, `--color-forest`, `--color-stone`, `--color-warm-border`. Animation utility classes (`animate-fade-up`, `animate-line-grow`, `delay-*`) are also defined in `globals.css`.
 

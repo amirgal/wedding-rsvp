@@ -1,16 +1,28 @@
-import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
+import { Frank_Ruhl_Libre, Heebo } from 'next/font/google'
+import localFont from 'next/font/local'
 
-export const displayFont = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  style: ['normal', 'italic'],
-  variable: '--font-display',
+export const displayFont = Frank_Ruhl_Libre({
+  subsets: ['latin', 'hebrew'],
+  weight: ['300', '400', '500', '700'],
+  variable: '--font-display-var',
   display: 'swap',
 })
 
-export const bodyFont = DM_Sans({
-  subsets: ['latin'],
+export const bodyFont = Heebo({
+  subsets: ['latin', 'hebrew'],
   weight: ['300', '400', '500'],
-  variable: '--font-body',
+  variable: '--font-body-var',
+  display: 'swap',
+})
+
+export const handwritingFont = localFont({
+  src: [
+    {
+      path: '../public/fonts/DanaYadAlefAlefAlef-Normal.woff',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-handwriting-var',
   display: 'swap',
 })

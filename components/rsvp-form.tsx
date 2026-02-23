@@ -34,11 +34,10 @@ function CounterField({
         <button
           type="button"
           className="stepper-btn"
-          onClick={() => onChange(Math.max(min, value - 1))}
-          disabled={value <= min}
-          aria-label={`Decrease ${label}`}
+          onClick={() => onChange(value + 1)}
+          aria-label={`הוסף ${label}`}
         >
-          −
+          +
         </button>
         <span className="font-display text-3xl font-light w-7 text-center leading-none text-[var(--color-ink)]">
           {value}
@@ -46,10 +45,11 @@ function CounterField({
         <button
           type="button"
           className="stepper-btn"
-          onClick={() => onChange(value + 1)}
-          aria-label={`Increase ${label}`}
+          onClick={() => onChange(Math.max(min, value - 1))}
+          disabled={value <= min}
+          aria-label={`הפחת ${label}`}
         >
-          +
+          −
         </button>
       </div>
     </div>
@@ -77,14 +77,14 @@ export function RsvpForm({ inviteId, token, existingResponse, isEditing }: RsvpF
       const data = await res.json()
 
       if (!res.ok || !data.success) {
-        toast.error(data.error ?? 'Something went wrong. Please try again.')
+        toast.error(data.error ?? 'משהו השתבש. נא נסו שנית.')
         return
       }
 
       setDidNotAttend(!attending)
       setSubmitted(true)
     } catch {
-      toast.error('Network error. Please check your connection.')
+      toast.error('שגיאת רשת. נא בדקו את החיבור.')
     } finally {
       setLoading(null)
     }
@@ -102,11 +102,11 @@ export function RsvpForm({ inviteId, token, existingResponse, isEditing }: RsvpF
             )}
           </svg>
         </div>
-        <p className="font-display text-3xl font-light italic text-[var(--color-ink)] leading-snug">
-          {didNotAttend ? 'We will miss you.' : 'We cannot wait to celebrate with you.'}
+        <p className="font-display text-3xl font-light text-[var(--color-ink)] leading-snug">
+          {didNotAttend ? 'נשמח אם תוכלו להצטרף בפעם הבאה.' : 'מחכים לחגוג יחד איתכם!'}
         </p>
         <p className="mt-3 text-sm text-[var(--color-stone)] font-body">
-          {isEditing ? 'Your response has been updated.' : 'Your RSVP has been received.'}
+          {isEditing ? 'תגובתכם עודכנה.' : 'אישורכם התקבל.'}
         </p>
       </div>
     )
@@ -115,22 +115,22 @@ export function RsvpForm({ inviteId, token, existingResponse, isEditing }: RsvpF
   return (
     <div className="space-y-8">
       {isEditing && (
-        <p className="text-sm text-[var(--color-stone)] italic font-body border-l-2 border-[var(--color-forest)] pl-4 py-1">
-          You have already responded. You may update your answer below.
+        <p className="text-sm text-[var(--color-stone)] italic font-body border-r-2 border-[var(--color-forest)] pr-4 py-1">
+          כבר שלחתם אישור. ניתן לעדכן את תגובתכם למטה.
         </p>
       )}
 
       <div className="border border-[var(--color-warm-border)] rounded-lg overflow-hidden bg-white/60">
         <CounterField
-          label="Adults attending"
-          sublabel="Age 7 and above"
+          label="מבוגרים"
+          sublabel="גיל 7 ומעלה"
           value={adultCount}
           onChange={setAdultCount}
           min={1}
         />
         <CounterField
-          label="Children attending"
-          sublabel="Ages 2–7"
+          label="ילדים"
+          sublabel="גילאי 2–7"
           value={kidCount}
           onChange={setKidCount}
           min={0}
@@ -145,7 +145,7 @@ export function RsvpForm({ inviteId, token, existingResponse, isEditing }: RsvpF
                      tracking-wide rounded-lg hover:bg-[oklch(0.33_0.065_152)] transition-colors
                      disabled:opacity-60 disabled:cursor-not-allowed text-sm"
         >
-          {loading === 'attending' ? 'Saving…' : isEditing ? 'Update RSVP' : 'Submit RSVP'}
+          {loading === 'attending' ? 'שומר...' : isEditing ? 'עדכון אישור' : 'אישור הגעה'}
         </button>
 
         <button
@@ -154,7 +154,7 @@ export function RsvpForm({ inviteId, token, existingResponse, isEditing }: RsvpF
           className="w-full py-3 px-6 text-[var(--color-stone)] font-body font-normal text-sm
                      hover:text-[var(--color-ink)] transition-colors disabled:opacity-50"
         >
-          {loading === 'not-attending' ? 'Saving…' : 'I will not attend'}
+          {loading === 'not-attending' ? 'שומר...' : 'לא אוכל להגיע'}
         </button>
       </div>
     </div>
