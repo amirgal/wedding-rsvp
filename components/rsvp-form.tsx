@@ -56,7 +56,7 @@ function CounterField({
   )
 }
 
-export function RsvpForm({ inviteId, token, existingResponse, isEditing }: RsvpFormProps) {
+export function RsvpForm({ token, existingResponse, isEditing }: RsvpFormProps) {
   const [adultCount, setAdultCount] = useState(existingResponse?.adult_count ?? 1)
   const [kidCount, setKidCount] = useState(existingResponse?.kid_count ?? 0)
   const [loading, setLoading] = useState<'attending' | 'not-attending' | null>(null)
