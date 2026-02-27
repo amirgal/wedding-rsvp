@@ -5,7 +5,8 @@ import { toast } from 'sonner'
 import { StatusBadge } from '@/components/status-badge'
 import { CopyLinkButton } from '@/components/copy-link-button'
 import type { InviteWithResponse } from '@/lib/types'
-import { Trash2, Plus, Upload, UserPlus } from 'lucide-react'
+import { Trash2, Plus, Upload, UserPlus, FileDown } from 'lucide-react'
+import * as XLSX from 'xlsx'
 
 const DEFAULT_TEMPLATE =
   '{{name}} היקר/ה,\n\nאנחנו שמחים להזמין אותך להשתתף בנו ביום המיוחד שלנו. אנא השתמש בקישור למטה כדי להשיב:\n\n{{link}}\n\nבחום,'
@@ -16,6 +17,15 @@ interface InviteesTabProps {
   onRefresh: () => void
 }
 
+type StatusFilter = 'pending' | 'opened' | 'submitted' | 'edited'
+
+const STATUS_FILTERS: { value: StatusFilter; label: string }[] = [
+  { value: 'pending', label: 'ממתין' },
+  { value: 'opened', label: 'נפתח' },
+  { value: 'submitted', label: 'הגיב' },
+  { value: 'edited', label: 'ערך' },
+]
+
 export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
   const [template, setTemplate] = useState(DEFAULT_TEMPLATE)
   const [name, setName] = useState('')
@@ -23,9 +33,66 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
   const [addLoading, setAddLoading] = useState(false)
   const [deleteLoading, setDeleteLoading] = useState<string | null>(null)
   const [importLoading, setImportLoading] = useState(false)
+  const [activeFilters, setActiveFilters] = useState<Set<StatusFilter>>(new Set())
   const fileInputRef = useRef<HTMLInputElement>(null)
 
+  const toggleFilter = (status: StatusFilter) => {
+    setActiveFilters((prev) => {
+      const next = new Set(prev)
+      if (next.has(status)) next.delete(status)
+      else next.add(status)
+      return next
+    })
+  }
+
+  const filteredInvites = activeFilters.size === 0
+    ? invites
+    : invites.filter((inv) => activeFilters.has(inv.status as StatusFilter))
+
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? (typeof window !== 'undefined' ? window.location.origin : '')
+
+  const getMessagePreview = (invite: InviteWithResponse) => {
+    const link = `${siteUrl}/?token=${invite.token}`
+    return template.replace(/\{\{name\}\}/g, invite.name).replace(/\{\{link\}\}/g, link)
+  }
+
+  const handleExport = () => {
+    const dateStr = new Date().toISOString().slice(0, 10)
+    const filterStr = activeFilters.size === 0
+      ? 'all'
+      : [...activeFilters].join('+')
+    const fileName = `invitees-${filterStr}-${dateStr}.xlsx`
+
+    const rows = filteredInvites.map((invite) => {
+      const link = `${siteUrl}/?token=${invite.token}`
+      const message = getMessagePreview(invite)
+      const r = invite.responses
+      let attending = '—'
+      if (r) attending = r.attending ? `כן (${r.adult_count}מ${r.kid_count > 0 ? ` · ${r.kid_count}י` : ''})` : 'לא'
+      return {
+        name: invite.name,
+        phone: invite.phone ?? '',
+        status: invite.status,
+        attending,
+        link,
+        message,
+      }
+    })
+
+    const ws = XLSX.utils.json_to_sheet(rows)
+    // Set column widths
+    ws['!cols'] = [
+      { wch: 20 }, // שם
+      { wch: 15 }, // טלפון
+      { wch: 12 }, // סטטוס
+      { wch: 15 }, // מגיע/מגיעה
+      { wch: 50 }, // קישור
+      { wch: 80 }, // הודעה
+    ]
+    const wb = XLSX.utils.book_new()
+    XLSX.utils.book_append_sheet(wb, ws, 'מוזמנים')
+    XLSX.writeFile(wb, fileName)
+  }
 
   const handleAdd = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -93,11 +160,6 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
       setImportLoading(false)
       if (fileInputRef.current) fileInputRef.current.value = ''
     }
-  }
-
-  const getMessagePreview = (invite: InviteWithResponse) => {
-    const link = `${siteUrl}/?token=${invite.token}`
-    return template.replace(/\{\{name\}\}/g, invite.name).replace(/\{\{link\}\}/g, link)
   }
 
   return (
@@ -213,10 +275,61 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
 
       {/* Invitees table */}
       <section>
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="font-body text-[0.68rem] tracking-[0.18em] uppercase text-[var(--color-stone)]">
-            מוזמנים ({invites.length})
-          </h2>
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div className="flex items-center gap-3">
+            <h2 className="font-body text-[0.68rem] tracking-[0.18em] uppercase text-[var(--color-stone)]">
+              מוזמנים ({filteredInvites.length}{activeFilters.size > 0 ? ` מתוך ${invites.length}` : ''})
+            </h2>
+            <button
+              type="button"
+              onClick={handleExport}
+              disabled={filteredInvites.length === 0}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-body
+                         text-[var(--color-stone)] border border-[var(--color-warm-border)] rounded-md
+                         hover:border-[var(--color-forest)] hover:text-[var(--color-forest)]
+                         transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              <FileDown className="w-3.5 h-3.5" />
+              ייצא XLSX{activeFilters.size > 0 ? ` (${filteredInvites.length})` : ''}
+            </button>
+          </div>
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="font-body text-[0.65rem] text-[var(--color-stone)] tracking-wide">סינון:</span>
+            {STATUS_FILTERS.map(({ value, label }) => {
+              const count = invites.filter((inv) => inv.status === value).length
+              const active = activeFilters.has(value)
+              return (
+                <button
+                  key={value}
+                  type="button"
+                  onClick={() => toggleFilter(value)}
+                  aria-pressed={active}
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-body
+                              border transition-colors cursor-pointer
+                              ${active
+                                ? 'bg-[var(--color-forest)] border-[var(--color-forest)] text-white'
+                                : 'bg-white border-[var(--color-warm-border)] text-[var(--color-stone)] hover:border-[var(--color-forest)] hover:text-[var(--color-forest)]'
+                              }`}
+                >
+                  {label}
+                  <span className={`text-[0.65rem] px-1 py-0.5 rounded-full ${active ? 'bg-white/20 text-white' : 'bg-[var(--color-parchment)] text-[var(--color-stone)]'}`}>
+                    {count}
+                  </span>
+                </button>
+              )
+            })}
+            {activeFilters.size > 0 && (
+              <button
+                type="button"
+                onClick={() => setActiveFilters(new Set())}
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-body
+                           border border-[var(--color-warm-border)] text-[var(--color-stone)]
+                           hover:border-red-300 hover:text-red-500 transition-colors cursor-pointer"
+              >
+                ✕ נקה
+              </button>
+            )}
+          </div>
         </div>
 
         {loading ? (
@@ -234,6 +347,12 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
               הוסף מוזמנים למעלה או ייבא מגיליון אלקטרוני.
             </p>
           </div>
+        ) : filteredInvites.length === 0 ? (
+          <div className="text-center py-12 bg-white border border-[var(--color-warm-border)] rounded-xl">
+            <p className="font-display text-xl font-light italic text-[var(--color-stone)]">
+              אין מוזמנים עם הסטטוס שנבחר.
+            </p>
+          </div>
         ) : (
           <div className="bg-white border border-[var(--color-warm-border)] rounded-xl overflow-x-auto">
             <table className="w-full admin-table">
@@ -249,7 +368,7 @@ export function InviteesTab({ invites, loading, onRefresh }: InviteesTabProps) {
                 </tr>
               </thead>
               <tbody>
-                {invites.map((invite) => {
+                {filteredInvites.map((invite) => {
                   const r = invite.responses
                   return (
                     <tr key={invite.id}>
