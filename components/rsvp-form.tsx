@@ -96,17 +96,20 @@ export function RsvpForm({ token, existingResponse, isEditing }: RsvpFormProps) 
         <div className="w-12 h-12 rounded-full border border-[var(--color-forest)] flex items-center justify-center mx-auto mb-6">
           <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5 stroke-[var(--color-forest)]" strokeWidth={1.5}>
             {didNotAttend ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.5L10 7l5.5 5.5" />
+              <>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l8 8" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14 6l-8 8" />
+              </>
             ) : (
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5l4 4 7-7" />
             )}
           </svg>
         </div>
         <p className="font-display text-3xl font-light text-[var(--color-ink)] leading-snug">
-          {didNotAttend ? 'נשמח אם תוכלו להצטרף בפעם הבאה.' : 'מחכים לחגוג יחד איתכם!'}
+          {didNotAttend ? 'מצטערים שלא נזכה לראותכם ביום המיוחד.' : 'מחכים לחגוג יחד איתכם!'}
         </p>
         <p className="mt-3 text-sm text-[var(--color-stone)] font-body">
-          {isEditing ? 'תגובתכם עודכנה.' : 'אישורכם התקבל.'}
+          {isEditing ? 'תגובתכם עודכנה.' : didNotAttend ? 'תגובתכם התקבלה.' : 'אישורכם התקבל.'}
         </p>
       </div>
     )

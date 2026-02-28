@@ -1,7 +1,7 @@
-import { Frank_Ruhl_Libre, Heebo } from 'next/font/google'
+import { Assistant, Heebo } from 'next/font/google'
 import localFont from 'next/font/local'
 
-export const displayFont = Frank_Ruhl_Libre({
+export const displayFont = Assistant({
   subsets: ['latin', 'hebrew'],
   weight: ['300', '400', '500', '700'],
   variable: '--font-display-var',

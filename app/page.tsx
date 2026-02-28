@@ -72,7 +72,7 @@ export default async function RsvpPage({ searchParams }: PageProps) {
         {/* Invitation text */}
         <div className="animate-fade-up delay-200 mb-12">
           <p className="font-display text-xl font-light text-[var(--color-stone)] leading-relaxed">
-            בשמחה ובאהבה מזמינים אנו אתכם לחגוג עמנו את יום חתונתנו.
+            בשמחה ובאהבה אנו מזמינים אתכם לחגוג עמנו את יום חתונתנו.
           </p>
         </div>
 
