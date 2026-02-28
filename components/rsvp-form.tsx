@@ -155,7 +155,9 @@ export function RsvpForm({ token, existingResponse, isEditing }: RsvpFormProps) 
           onClick={() => submit(false)}
           disabled={!!loading}
           className="w-full py-3 px-6 text-[var(--color-stone)] font-body font-normal text-sm
-                     hover:text-[var(--color-ink)] transition-colors disabled:opacity-50 cursor-pointer"
+                     border border-[var(--color-warm-border)] rounded-lg
+                     hover:border-[var(--color-stone)] hover:text-[var(--color-ink)]
+                     transition-colors disabled:opacity-50 cursor-pointer"
         >
           {loading === 'not-attending' ? 'שומר...' : 'לא אוכל להגיע'}
         </button>

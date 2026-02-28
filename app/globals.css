@@ -146,6 +146,14 @@
   animation: line-grow 1s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+@keyframes shimmer {
+  from { transform: translateX(-150%) skewX(-30deg); }
+  to   { transform: translateX(250%) skewX(-30deg); }
+}
+.animate-shimmer {
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
 .delay-300 { animation-delay: 300ms; }

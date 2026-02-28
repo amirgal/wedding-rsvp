@@ -33,7 +33,7 @@ export default function AdminPage() {
   }, [])
 
   const tabs: { id: Tab; label: string; count?: number }[] = [
-    { id: 'invitees', label: 'מוזמנים', count: invites.length },
+    { id: 'invitees', label: 'מוזמנים', count: loading ? undefined : invites.length },
     {
       id: 'responses',
       label: 'תשובות',
@@ -58,9 +58,17 @@ export default function AdminPage() {
         </div>
 
         {/* Quick stats bar */}
-        {stats && (
-          <div className="grid grid-cols-4 gap-3 mb-8">
-            {[
+        <div className="grid grid-cols-4 gap-3 mb-8">
+          {loading ? (
+            Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="relative overflow-hidden bg-stone-100 border border-[var(--color-warm-border)] rounded-lg px-4 py-3 text-center">
+                <p className="font-display text-2xl font-light invisible">0</p>
+                <p className="font-body text-[0.65rem] tracking-wide uppercase mt-0.5 invisible">—</p>
+                <div className="animate-shimmer absolute inset-0 w-1/3 bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+              </div>
+            ))
+          ) : stats ? (
+            [
               { label: 'מוזמנים', value: stats.totalInvited },
               { label: 'נפתח', value: stats.opened, color: 'text-amber-600' },
               { label: 'הגיבו', value: stats.submitted + stats.edited, color: 'text-emerald-700' },
@@ -77,9 +85,9 @@ export default function AdminPage() {
                   {s.label}
                 </p>
               </div>
-            ))}
-          </div>
-        )}
+            ))
+          ) : null}
+        </div>
 
         {/* Tabs */}
         <div className="border-b border-[var(--color-warm-border)] mb-8">
