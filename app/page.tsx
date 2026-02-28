@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { RsvpForm } from '@/components/rsvp-form'
+import WeddingLanding from '@/components/wedding-landing'
 
 interface PageProps {
   searchParams: Promise<{ token?: string }>
@@ -9,7 +10,7 @@ interface PageProps {
 export default async function RsvpPage({ searchParams }: PageProps) {
   const { token } = await searchParams
 
-  if (!token) notFound()
+  if (!token) return <WeddingLanding />
 
   const supabase = createAdminClient()
 
