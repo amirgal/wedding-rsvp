@@ -92,7 +92,7 @@ function LoginForm() {
           </div>
 
           {error && (
-            <p className="text-sm text-red-600 font-body">{error}</p>
+            <p className="text-sm text-[var(--color-destructive)] font-body">{error}</p>
           )}
 
           <button

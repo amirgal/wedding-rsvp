@@ -19,14 +19,14 @@ export function CopyLinkButton({ token }: { token: string }) {
       className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-body text-[var(--color-stone)]
                  border border-[var(--color-warm-border)] rounded-md hover:border-[var(--color-forest)]
                  hover:text-[var(--color-forest)] transition-colors cursor-pointer"
-      title="Copy invite link"
+      title="העתק קישור הזמנה"
     >
       {copied ? (
         <Check className="w-3.5 h-3.5 text-emerald-600" />
       ) : (
         <Link2 className="w-3.5 h-3.5" />
       )}
-      {copied ? 'Copied' : 'Copy link'}
+      {copied ? 'הועתק' : 'העתק קישור'}
     </button>
   )
 }

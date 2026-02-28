@@ -10,9 +10,9 @@ interface ResponsesTabProps {
 }
 
 function formatDate(iso: string) {
-  return new Date(iso).toLocaleString('en-US', {
-    month: 'short',
+  return new Date(iso).toLocaleString('he-IL', {
     day: 'numeric',
+    month: 'numeric',
     year: 'numeric',
     hour: '2-digit',
     minute: '2-digit',
