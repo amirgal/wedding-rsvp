@@ -146,6 +146,29 @@
   animation: line-grow 1s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* ─── Decline button fill animation ──────────────────────────── */
+.btn-decline {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+.btn-decline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: oklch(0.55 0.19 38);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+.btn-decline:hover::before {
+  transform: scaleX(1);
+}
+.btn-decline:hover {
+  color: white;
+}
+
 @keyframes shimmer {
   from { transform: translateX(-150%) skewX(-30deg); }
   to   { transform: translateX(250%) skewX(-30deg); }
