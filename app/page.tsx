@@ -1,7 +1,10 @@
 import { notFound } from 'next/navigation'
+import { headers } from 'next/headers'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { RsvpForm } from '@/components/rsvp-form'
 import WeddingLanding from '@/components/wedding-landing'
+
+const BOT_UA_PATTERN = /whatsapp|facebookexternalhit|twitterbot|linkedinbot|telegrambot|slackbot|discordbot|googlebot|bingbot|crawler|spider|preview/i
 
 interface PageProps {
   searchParams: Promise<{ token?: string }>
@@ -22,8 +25,13 @@ export default async function RsvpPage({ searchParams }: PageProps) {
 
   if (!invite) notFound()
 
-  // Mark pending → opened server-side (no client round-trip needed)
-  if (invite.status === 'pending') {
+  // Mark pending → opened server-side, but skip for link preview bots
+  // (WhatsApp, Facebook, etc. fetch the URL to generate previews before the user actually opens it)
+  const headersList = await headers()
+  const userAgent = headersList.get('user-agent') ?? ''
+  const isBot = BOT_UA_PATTERN.test(userAgent)
+
+  if (invite.status === 'pending' && !isBot) {
     await supabase.from('invites').update({ status: 'opened' }).eq('id', invite.id)
   }
 
