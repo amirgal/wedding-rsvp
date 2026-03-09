@@ -69,11 +69,11 @@ export default async function RsvpPage({ searchParams }: PageProps) {
       <div className="max-w-md mx-auto px-6 py-20 relative z-10">
         {/* Header */}
         <header className="mb-14">
-          <p className="animate-fade-up font-body text-[0.72rem] tracking-[0.15em] text-[var(--color-stone)] mb-4">
+          {/* <p className="animate-fade-up font-body text-[0.72rem] tracking-[0.15em] text-[var(--color-stone)] mb-4">
             הוזמנתם
-          </p>
+          </p> */}
           <h1 className="animate-fade-up delay-100 font-handwriting text-6xl font-bold text-[var(--color-ink)] leading-tight">
-            שלום, {invite.name}
+            שלום {invite.name.split(' ')[0]},
           </h1>
           <div className="animate-line-grow delay-300 mt-5 h-px bg-[var(--color-forest)] w-14 opacity-60" />
         </header>
