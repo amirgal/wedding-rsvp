@@ -12,47 +12,6 @@ interface RsvpFormProps {
   inviteName: string
 }
 
-// Wedding rings SVG — watercolor gold style
-function WeddingRings() {
-  return (
-    <svg
-      viewBox="0 0 120 70"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      width="110"
-      height="65"
-      aria-hidden
-    >
-      {/* Left ring — outer glow layers */}
-      <ellipse cx="44" cy="38" rx="22" ry="10" fill="#f0c840" opacity="0.15" />
-      <ellipse cx="44" cy="38" rx="20" ry="9" fill="#e8b828" opacity="0.20" />
-      {/* Left ring band */}
-      <ellipse cx="44" cy="38" rx="18" ry="8" fill="none" stroke="#d4a020" strokeWidth="5" opacity="0.55" />
-      <ellipse cx="44" cy="38" rx="18" ry="8" fill="none" stroke="#f0c840" strokeWidth="3" opacity="0.65" />
-      <ellipse cx="44" cy="38" rx="18" ry="8" fill="none" stroke="#f8e090" strokeWidth="1.5" opacity="0.50" />
-      {/* Left ring highlight */}
-      <ellipse cx="36" cy="33" rx="7" ry="3" fill="#f8f0c0" opacity="0.30" transform="rotate(-20 36 33)" />
-      {/* Left ring engraving detail */}
-      <ellipse cx="44" cy="38" rx="18" ry="8" fill="none" stroke="#b08818" strokeWidth="1" strokeDasharray="3 4" opacity="0.30" />
-
-      {/* Right ring — slightly overlapping, in front */}
-      <ellipse cx="76" cy="38" rx="22" ry="10" fill="#f0c840" opacity="0.15" />
-      <ellipse cx="76" cy="38" rx="20" ry="9" fill="#e8b828" opacity="0.20" />
-      {/* Right ring band */}
-      <ellipse cx="76" cy="38" rx="18" ry="8" fill="none" stroke="#c89818" strokeWidth="5" opacity="0.55" />
-      <ellipse cx="76" cy="38" rx="18" ry="8" fill="none" stroke="#e8b828" strokeWidth="3" opacity="0.65" />
-      <ellipse cx="76" cy="38" rx="18" ry="8" fill="none" stroke="#f8e898" strokeWidth="1.5" opacity="0.50" />
-      {/* Right ring highlight */}
-      <ellipse cx="68" cy="33" rx="7" ry="3" fill="#f8f0c0" opacity="0.28" transform="rotate(-20 68 33)" />
-      {/* Right ring engraving detail */}
-      <ellipse cx="76" cy="38" rx="18" ry="8" fill="none" stroke="#a07810" strokeWidth="1" strokeDasharray="3 4" opacity="0.28" />
-
-      {/* Shadow beneath */}
-      <ellipse cx="60" cy="50" rx="32" ry="5" fill="#c8a020" opacity="0.08" />
-    </svg>
-  )
-}
-
 // Small flower cluster for confirmation state
 function SmallFlowerCluster() {
   return (
@@ -203,11 +162,6 @@ export function RsvpForm({ token, existingResponse, isEditing, inviteName }: Rsv
 
   return (
     <div dir="rtl" className="flex flex-col items-center text-center">
-
-      {/* Wedding rings */}
-      <div className="mt-2 mb-3 animate-fade-in">
-        <WeddingRings />
-      </div>
 
       {/* Name greeting — large handwriting */}
       <div className="animate-fade-up mb-1">
