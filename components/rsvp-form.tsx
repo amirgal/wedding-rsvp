@@ -23,25 +23,58 @@ function SmallFlowerCluster() {
       height="55"
       aria-hidden
     >
-      {/* Pink cosmos */}
-      <ellipse cx="30" cy="28" rx="9" ry="5" fill="#f0a0b0" opacity="0.60" transform="rotate(-30 30 28)" />
-      <ellipse cx="30" cy="28" rx="9" ry="5" fill="#f0a0b0" opacity="0.55" transform="rotate(30 30 28)" />
-      <ellipse cx="30" cy="28" rx="9" ry="5" fill="#e890a0" opacity="0.50" transform="rotate(90 30 28)" />
-      <ellipse cx="30" cy="28" rx="9" ry="5" fill="#f0a0b0" opacity="0.52" transform="rotate(-90 30 28)" />
-      <circle cx="30" cy="28" r="4" fill="#f8d060" opacity="0.75" />
-      <circle cx="30" cy="28" r="2.5" fill="#f0a828" opacity="0.85" />
+      <defs>
+        {/* Soft watercolor gradients - delicate and translucent */}
+        <radialGradient id="pinkPetalSmall" cx="40%" cy="40%">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.3" />
+          <stop offset="30%" stopColor="#ffc8d8" stopOpacity="0.5" />
+          <stop offset="70%" stopColor="#ff9bb8" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="#ff88a8" stopOpacity="0.2" />
+        </radialGradient>
+        <radialGradient id="purplePetalSmall" cx="40%" cy="40%">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.25" />
+          <stop offset="35%" stopColor="#d8c0f0" stopOpacity="0.45" />
+          <stop offset="75%" stopColor="#b898d8" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#a080c8" stopOpacity="0.15" />
+        </radialGradient>
+        <radialGradient id="yellowPetalSmall" cx="40%" cy="40%">
+          <stop offset="0%" stopColor="#fffef8" stopOpacity="0.4" />
+          <stop offset="35%" stopColor="#ffe8a0" stopOpacity="0.55" />
+          <stop offset="75%" stopColor="#ffd060" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#f0b840" stopOpacity="0.2" />
+        </radialGradient>
+        <radialGradient id="yellowCenterSmall" cx="50%" cy="50%">
+          <stop offset="0%" stopColor="#fff8d0" stopOpacity="0.7" />
+          <stop offset="50%" stopColor="#ffd850" stopOpacity="0.6" />
+          <stop offset="100%" stopColor="#e0a830" stopOpacity="0.4" />
+        </radialGradient>
+        <radialGradient id="leafGreenSmall" cx="45%" cy="40%">
+          <stop offset="0%" stopColor="#e8f8d8" stopOpacity="0.35" />
+          <stop offset="50%" stopColor="#a8d888" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="#78b860" stopOpacity="0.25" />
+        </radialGradient>
+      </defs>
 
-      {/* Lavender wisteria cluster */}
-      <ellipse cx="60" cy="22" rx="6" ry="4" fill="#c8a8d8" opacity="0.55" transform="rotate(-10 60 22)" />
-      <ellipse cx="66" cy="18" rx="5" ry="3.5" fill="#b896c8" opacity="0.50" />
-      <ellipse cx="56" cy="30" rx="5" ry="7" fill="#d4b4e0" opacity="0.48" />
-      <ellipse cx="64" cy="32" rx="4" ry="6" fill="#c0a0d0" opacity="0.50" transform="rotate(-5 64 32)" />
-      <ellipse cx="70" cy="26" rx="4" ry="6" fill="#c8a8d8" opacity="0.45" transform="rotate(10 70 26)" />
+      {/* Pink cosmos - delicate */}
+      <ellipse cx="30" cy="28" rx="8" ry="4.5" fill="url(#pinkPetalSmall)" transform="rotate(-30 30 28)" />
+      <ellipse cx="30" cy="28" rx="8" ry="4.5" fill="url(#pinkPetalSmall)" transform="rotate(30 30 28)" />
+      <ellipse cx="30" cy="28" rx="8" ry="4.5" fill="url(#pinkPetalSmall)" transform="rotate(90 30 28)" />
+      <ellipse cx="30" cy="28" rx="8" ry="4.5" fill="url(#pinkPetalSmall)" transform="rotate(-90 30 28)" />
+      <circle cx="30" cy="28" r="3" fill="url(#yellowCenterSmall)" />
+      <circle cx="30" cy="28" r="1.5" fill="#d89020" opacity="0.7" />
 
-      {/* Yellow daffodil */}
-      <ellipse cx="100" cy="26" rx="9" ry="5" fill="#f0d040" opacity="0.62" transform="rotate(-20 100 26)" />
-      <ellipse cx="100" cy="26" rx="9" ry="5" fill="#e8c838" opacity="0.57" transform="rotate(20 100 26)" />
-      <ellipse cx="100" cy="26" rx="9" ry="5" fill="#f0d040" opacity="0.52" transform="rotate(70 100 26)" />
+      {/* Lavender wisteria cluster - delicate */}
+      <ellipse cx="60" cy="22" rx="5" ry="3.5" fill="url(#purplePetalSmall)" transform="rotate(-10 60 22)" />
+      <ellipse cx="66" cy="18" rx="4.5" ry="3" fill="url(#purplePetalSmall)" />
+      <ellipse cx="56" cy="30" rx="4" ry="6" fill="url(#purplePetalSmall)" />
+      <ellipse cx="64" cy="32" rx="3.5" ry="5" fill="url(#purplePetalSmall)" transform="rotate(-5 64 32)" />
+      <ellipse cx="70" cy="26" rx="3.5" ry="5" fill="url(#purplePetalSmall)" transform="rotate(10 70 26)" />
+      <path d="M62 20 Q60 26, 58 32" stroke="url(#leafGreenSmall)" strokeWidth="0.7" fill="none" opacity="0.4" />
+
+      {/* Yellow daffodil - delicate */}
+      <ellipse cx="100" cy="26" rx="8" ry="4.5" fill="url(#yellowPetalSmall)" transform="rotate(-20 100 26)" />
+      <ellipse cx="100" cy="26" rx="8" ry="4.5" fill="url(#yellowPetalSmall)" transform="rotate(20 100 26)" />
+      <ellipse cx="100" cy="26" rx="8" ry="4.5" fill="url(#yellowPetalSmall)" transform="rotate(70 100 26)" />
       <ellipse cx="100" cy="26" rx="9" ry="5" fill="#e8c838" opacity="0.54" transform="rotate(-70 100 26)" />
       <ellipse cx="100" cy="26" rx="4.5" ry="3.5" fill="#f0a020" opacity="0.82" />
       <ellipse cx="100" cy="26" rx="2.8" ry="2.2" fill="#e09018" opacity="0.88" />

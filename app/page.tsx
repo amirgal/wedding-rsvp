@@ -58,72 +58,63 @@ export default async function RsvpPage({ searchParams }: PageProps) {
           preserveAspectRatio="xMidYMin slice"
         >
           <defs>
-            {/* Radial gradients for realistic flower depth */}
-            <radialGradient id="pinkPetal" cx="30%" cy="30%">
-              <stop offset="0%" stopColor="#ffc0d0" stopOpacity="0.9" />
-              <stop offset="50%" stopColor="#f0a0b0" stopOpacity="0.7" />
-              <stop offset="100%" stopColor="#d88090" stopOpacity="0.4" />
+            {/* Soft watercolor gradients - delicate and translucent */}
+            <radialGradient id="pinkPetal" cx="40%" cy="40%">
+              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.3" />
+              <stop offset="30%" stopColor="#ffc8d8" stopOpacity="0.5" />
+              <stop offset="70%" stopColor="#ff9bb8" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#ff88a8" stopOpacity="0.2" />
             </radialGradient>
-            <radialGradient id="purplePetal" cx="35%" cy="35%">
-              <stop offset="0%" stopColor="#e8d0f0" stopOpacity="0.8" />
-              <stop offset="60%" stopColor="#c8a8d8" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#a888b8" stopOpacity="0.35" />
+            <radialGradient id="purplePetal" cx="40%" cy="40%">
+              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.25" />
+              <stop offset="35%" stopColor="#d8c0f0" stopOpacity="0.45" />
+              <stop offset="75%" stopColor="#b898d8" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#a080c8" stopOpacity="0.15" />
             </radialGradient>
-            <radialGradient id="yellowCenter" cx="40%" cy="40%">
-              <stop offset="0%" stopColor="#fff8e0" stopOpacity="0.95" />
-              <stop offset="40%" stopColor="#f8d060" stopOpacity="0.85" />
-              <stop offset="100%" stopColor="#e0a020" stopOpacity="0.7" />
+            <radialGradient id="yellowPetal" cx="40%" cy="40%">
+              <stop offset="0%" stopColor="#fffef8" stopOpacity="0.4" />
+              <stop offset="35%" stopColor="#ffe8a0" stopOpacity="0.55" />
+              <stop offset="75%" stopColor="#ffd060" stopOpacity="0.45" />
+              <stop offset="100%" stopColor="#f0b840" stopOpacity="0.2" />
             </radialGradient>
-            <radialGradient id="coralPetal" cx="30%" cy="30%">
-              <stop offset="0%" stopColor="#ffa888" stopOpacity="0.85" />
-              <stop offset="50%" stopColor="#f08060" stopOpacity="0.65" />
-              <stop offset="100%" stopColor="#c86040" stopOpacity="0.4" />
+            <radialGradient id="yellowCenter" cx="50%" cy="50%">
+              <stop offset="0%" stopColor="#fff8d0" stopOpacity="0.7" />
+              <stop offset="50%" stopColor="#ffd850" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#e0a830" stopOpacity="0.4" />
             </radialGradient>
-            <radialGradient id="bluePetal" cx="35%" cy="30%">
-              <stop offset="0%" stopColor="#a8b8f0" stopOpacity="0.75" />
-              <stop offset="50%" stopColor="#7890d8" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#5870b0" stopOpacity="0.4" />
+            <radialGradient id="bluePetal" cx="40%" cy="40%">
+              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.3" />
+              <stop offset="35%" stopColor="#c8d8f8" stopOpacity="0.5" />
+              <stop offset="75%" stopColor="#98b8e8" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#7898d8" stopOpacity="0.2" />
             </radialGradient>
-            <radialGradient id="leafGreen" cx="40%" cy="35%">
-              <stop offset="0%" stopColor="#90d090" stopOpacity="0.6" />
-              <stop offset="60%" stopColor="#78b870" stopOpacity="0.45" />
-              <stop offset="100%" stopColor="#608858" stopOpacity="0.25" />
-            </radialGradient>
-            {/* Soft shadow for depth */}
-            <radialGradient id="softShadow">
-              <stop offset="0%" stopColor="#000000" stopOpacity="0.15" />
-              <stop offset="100%" stopColor="#000000" stopOpacity="0" />
+            <radialGradient id="leafGreen" cx="45%" cy="40%">
+              <stop offset="0%" stopColor="#e8f8d8" stopOpacity="0.35" />
+              <stop offset="50%" stopColor="#a8d888" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#78b860" stopOpacity="0.25" />
             </radialGradient>
           </defs>
           {/* ─── LEFT CLUSTER ─── */}
 
-          {/* Wisteria cascade — hanging purple clusters with depth */}
-          <ellipse cx="8" cy="13" rx="7.5" ry="5.5" fill="url(#softShadow)" transform="rotate(-10 8 13)" />
-          <ellipse cx="8" cy="12" rx="7" ry="5" fill="url(#purplePetal)" transform="rotate(-10 8 12)" />
-          <ellipse cx="14" cy="9" rx="6.5" ry="4.5" fill="url(#softShadow)" transform="rotate(5 14 9)" />
-          <ellipse cx="14" cy="8" rx="6" ry="4" fill="url(#purplePetal)" transform="rotate(5 14 8)" />
-          <ellipse cx="5" cy="21" rx="5.5" ry="7.5" fill="url(#softShadow)" />
-          <ellipse cx="5" cy="20" rx="5" ry="7" fill="url(#purplePetal)" />
-          <ellipse cx="12" cy="23" rx="4.5" ry="6.5" fill="url(#softShadow)" transform="rotate(-5 12 23)" />
-          <ellipse cx="12" cy="22" rx="4" ry="6" fill="url(#purplePetal)" transform="rotate(-5 12 22)" />
-          <ellipse cx="20" cy="16" rx="5.5" ry="7.5" fill="url(#softShadow)" transform="rotate(10 20 16)" />
-          <ellipse cx="20" cy="15" rx="5" ry="7" fill="url(#purplePetal)" transform="rotate(10 20 15)" />
-          <ellipse cx="18" cy="29" rx="4.5" ry="6.5" fill="url(#softShadow)" transform="rotate(-8 18 29)" />
-          <ellipse cx="18" cy="28" rx="4" ry="6" fill="url(#purplePetal)" transform="rotate(-8 18 28)" />
+          {/* Wisteria cascade — delicate hanging clusters */}
+          <ellipse cx="8" cy="12" rx="6" ry="4" fill="url(#purplePetal)" transform="rotate(-10 8 12)" />
+          <ellipse cx="14" cy="8" rx="5" ry="3.5" fill="url(#purplePetal)" transform="rotate(5 14 8)" />
+          <ellipse cx="5" cy="20" rx="4" ry="6" fill="url(#purplePetal)" />
+          <ellipse cx="12" cy="22" rx="3.5" ry="5" fill="url(#purplePetal)" transform="rotate(-5 12 22)" />
+          <ellipse cx="20" cy="15" rx="4" ry="6" fill="url(#purplePetal)" transform="rotate(10 20 15)" />
+          <ellipse cx="18" cy="28" rx="3" ry="5" fill="url(#purplePetal)" transform="rotate(-8 18 28)" />
+          <path d="M10 10 Q8 18, 6 26" stroke="url(#leafGreen)" strokeWidth="0.8" fill="none" opacity="0.4" />
+          <path d="M16 8 Q14 16, 12 24" stroke="url(#leafGreen)" strokeWidth="0.8" fill="none" opacity="0.4" />
 
-          {/* Pink cosmos — left with realistic petals */}
-          {/* Cosmos 1 */}
-          <ellipse cx="45" cy="15" rx="9.5" ry="5.5" fill="url(#softShadow)" transform="rotate(-30 45 15)" />
-          <ellipse cx="45" cy="14" rx="9" ry="5" fill="url(#pinkPetal)" transform="rotate(-30 45 14)" />
-          <ellipse cx="45" cy="15" rx="9.5" ry="5.5" fill="url(#softShadow)" transform="rotate(30 45 15)" />
-          <ellipse cx="45" cy="14" rx="9" ry="5" fill="url(#pinkPetal)" transform="rotate(30 45 14)" />
-          <ellipse cx="45" cy="15" rx="9.5" ry="5.5" fill="url(#softShadow)" transform="rotate(90 45 15)" />
-          <ellipse cx="45" cy="14" rx="9" ry="5" fill="url(#pinkPetal)" transform="rotate(90 45 14)" />
-          <ellipse cx="45" cy="15" rx="9.5" ry="5.5" fill="url(#softShadow)" transform="rotate(-90 45 15)" />
-          <ellipse cx="45" cy="14" rx="9" ry="5" fill="url(#pinkPetal)" transform="rotate(-90 45 14)" />
-          <circle cx="45" cy="14.5" r="4.5" fill="url(#softShadow)" />
-          <circle cx="45" cy="14" r="4" fill="url(#yellowCenter)" />
-          <circle cx="45" cy="14" r="2.5" fill="#f0a828" opacity="0.90" />
+          {/* Pink cosmos — delicate petals */}
+          <ellipse cx="45" cy="14" rx="8" ry="4.5" fill="url(#pinkPetal)" transform="rotate(-30 45 14)" />
+          <ellipse cx="45" cy="14" rx="8" ry="4.5" fill="url(#pinkPetal)" transform="rotate(30 45 14)" />
+          <ellipse cx="45" cy="14" rx="8" ry="4.5" fill="url(#pinkPetal)" transform="rotate(90 45 14)" />
+          <ellipse cx="45" cy="14" rx="8" ry="4.5" fill="url(#pinkPetal)" transform="rotate(-90 45 14)" />
+          <circle cx="45" cy="14" r="3" fill="url(#yellowCenter)" />
+          <circle cx="45" cy="14" r="1.5" fill="#f0b830" opacity="0.7" />
+          <path d="M45 18 L45 35" stroke="url(#leafGreen)" strokeWidth="1" fill="none" opacity="0.35" />
+          <ellipse cx="42" cy="28" rx="8" ry="2.5" fill="url(#leafGreen)" transform="rotate(-15 42 28)" />
 
           {/* Cosmos 2 — slightly overlapping */}
           <ellipse cx="62" cy="22" rx="8" ry="4.5" fill="#f4a8b8" opacity="0.55" transform="rotate(-20 62 22)" />
@@ -155,15 +146,13 @@ export default async function RsvpPage({ searchParams }: PageProps) {
           <ellipse cx="88" cy="20" rx="5" ry="3" fill="#e88060" opacity="0.40" transform="rotate(25 88 20)" />
           <circle cx="88" cy="20" r="2" fill="#f8d060" opacity="0.65" />
 
-          {/* Blue iris — left with depth */}
-          <ellipse cx="30" cy="13" rx="5.5" ry="9.5" fill="url(#softShadow)" transform="rotate(-15 30 13)" />
-          <ellipse cx="30" cy="12" rx="5" ry="9" fill="url(#bluePetal)" transform="rotate(-15 30 12)" />
-          <ellipse cx="33" cy="11" rx="5.5" ry="9.5" fill="url(#softShadow)" transform="rotate(5 33 11)" />
-          <ellipse cx="33" cy="10" rx="5" ry="9" fill="url(#bluePetal)" transform="rotate(5 33 10)" />
-          <ellipse cx="27" cy="16" rx="4.5" ry="7.5" fill="url(#softShadow)" transform="rotate(-30 27 16)" />
-          <ellipse cx="27" cy="15" rx="4" ry="7" fill="url(#bluePetal)" transform="rotate(-30 27 15)" />
-          <ellipse cx="30" cy="9" rx="3.5" ry="5.5" fill="url(#softShadow)" />
-          <ellipse cx="30" cy="8" rx="3" ry="5" fill="#9090e0" opacity="0.65" />
+          {/* Blue iris — delicate petals */}
+          <ellipse cx="30" cy="12" rx="4.5" ry="8" fill="url(#bluePetal)" transform="rotate(-15 30 12)" />
+          <ellipse cx="33" cy="10" rx="4.5" ry="8" fill="url(#bluePetal)" transform="rotate(5 33 10)" />
+          <ellipse cx="27" cy="15" rx="3.5" ry="6.5" fill="url(#bluePetal)" transform="rotate(-30 27 15)" />
+          <circle cx="30" cy="12" r="2" fill="#ffe8a0" opacity="0.5" />
+          <path d="M30 18 L30 36" stroke="url(#leafGreen)" strokeWidth="0.9" fill="none" opacity="0.35" />
+          <ellipse cx="28" cy="28" rx="10" ry="2.8" fill="url(#leafGreen)" transform="rotate(5 28 28)" />
 
           {/* Yellow daffodil — left */}
           <ellipse cx="95" cy="8" rx="8" ry="4" fill="#f0d040" opacity="0.60" transform="rotate(-20 95 8)" />
@@ -173,46 +162,34 @@ export default async function RsvpPage({ searchParams }: PageProps) {
           <ellipse cx="95" cy="8" rx="4" ry="3" fill="#f0a020" opacity="0.80" />
           <ellipse cx="95" cy="8" rx="2.5" ry="2" fill="#e09018" opacity="0.85" />
 
-          {/* Leaves — left cluster with natural gradient */}
-          <ellipse cx="40" cy="20.5" rx="14.5" ry="5.5" fill="url(#softShadow)" transform="rotate(-35 40 20.5)" />
-          <ellipse cx="40" cy="20" rx="14" ry="5" fill="url(#leafGreen)" transform="rotate(-35 40 20)" />
-          <ellipse cx="55" cy="30.5" rx="16.5" ry="5.5" fill="url(#softShadow)" transform="rotate(-20 55 30.5)" />
-          <ellipse cx="55" cy="30" rx="16" ry="5" fill="url(#leafGreen)" transform="rotate(-20 55 30)" />
-          <ellipse cx="20" cy="35.5" rx="12.5" ry="4.5" fill="url(#softShadow)" transform="rotate(-50 20 35.5)" />
-          <ellipse cx="20" cy="35" rx="12" ry="4" fill="url(#leafGreen)" transform="rotate(-50 20 35)" />
-          <ellipse cx="70" cy="28.5" rx="15.5" ry="5.5" fill="url(#softShadow)" transform="rotate(-10 70 28.5)" />
-          <ellipse cx="70" cy="28" rx="15" ry="5" fill="url(#leafGreen)" transform="rotate(-10 70 28)" />
-          <ellipse cx="85" cy="32.5" rx="13.5" ry="4.5" fill="url(#softShadow)" transform="rotate(5 85 32.5)" />
-          <ellipse cx="85" cy="32" rx="13" ry="4" fill="url(#leafGreen)" transform="rotate(5 85 32)" />
+          {/* Delicate leaves */}
+          <ellipse cx="40" cy="20" rx="12" ry="3.5" fill="url(#leafGreen)" transform="rotate(-35 40 20)" />
+          <ellipse cx="55" cy="30" rx="14" ry="3.8" fill="url(#leafGreen)" transform="rotate(-20 55 30)" />
+          <ellipse cx="20" cy="35" rx="10" ry="3" fill="url(#leafGreen)" transform="rotate(-50 20 35)" />
+          <ellipse cx="70" cy="28" rx="13" ry="3.5" fill="url(#leafGreen)" transform="rotate(-10 70 28)" />
+          <ellipse cx="85" cy="32" rx="11" ry="3.2" fill="url(#leafGreen)" transform="rotate(5 85 32)" />
 
           {/* ─── RIGHT CLUSTER ─── */}
 
-          {/* Wisteria — right with depth */}
-          <ellipse cx="382" cy="11" rx="7.5" ry="5.5" fill="url(#softShadow)" transform="rotate(10 382 11)" />
-          <ellipse cx="382" cy="10" rx="7" ry="5" fill="url(#purplePetal)" transform="rotate(10 382 10)" />
-          <ellipse cx="376" cy="8" rx="6.5" ry="4.5" fill="url(#softShadow)" transform="rotate(-5 376 8)" />
-          <ellipse cx="376" cy="7" rx="6" ry="4" fill="url(#purplePetal)" transform="rotate(-5 376 7)" />
-          <ellipse cx="385" cy="21" rx="5.5" ry="7.5" fill="url(#softShadow)" />
-          <ellipse cx="385" cy="20" rx="5" ry="7" fill="url(#purplePetal)" />
-          <ellipse cx="378" cy="23" rx="4.5" ry="6.5" fill="url(#softShadow)" transform="rotate(5 378 23)" />
-          <ellipse cx="378" cy="22" rx="4" ry="6" fill="url(#purplePetal)" transform="rotate(5 378 22)" />
-          <ellipse cx="370" cy="16" rx="5.5" ry="7.5" fill="url(#softShadow)" transform="rotate(-10 370 16)" />
-          <ellipse cx="370" cy="15" rx="5" ry="7" fill="url(#purplePetal)" transform="rotate(-10 370 15)" />
-          <ellipse cx="372" cy="29" rx="4.5" ry="6.5" fill="url(#softShadow)" transform="rotate(8 372 29)" />
-          <ellipse cx="372" cy="28" rx="4" ry="6" fill="url(#purplePetal)" transform="rotate(8 372 28)" />
+          {/* Wisteria — right delicate clusters */}
+          <ellipse cx="382" cy="10" rx="6" ry="4" fill="url(#purplePetal)" transform="rotate(10 382 10)" />
+          <ellipse cx="376" cy="7" rx="5" ry="3.5" fill="url(#purplePetal)" transform="rotate(-5 376 7)" />
+          <ellipse cx="385" cy="20" rx="4" ry="6" fill="url(#purplePetal)" />
+          <ellipse cx="378" cy="22" rx="3.5" ry="5" fill="url(#purplePetal)" transform="rotate(5 378 22)" />
+          <ellipse cx="370" cy="15" rx="4" ry="6" fill="url(#purplePetal)" transform="rotate(-10 370 15)" />
+          <ellipse cx="372" cy="28" rx="3" ry="5" fill="url(#purplePetal)" transform="rotate(8 372 28)" />
+          <path d="M380 10 Q382 18, 384 26" stroke="url(#leafGreen)" strokeWidth="0.8" fill="none" opacity="0.4" />
+          <path d="M374 8 Q376 16, 378 24" stroke="url(#leafGreen)" strokeWidth="0.8" fill="none" opacity="0.4" />
 
-          {/* Pink cosmos — right with realistic petals */}
-          <ellipse cx="345" cy="15" rx="9.5" ry="5.5" fill="url(#softShadow)" transform="rotate(30 345 15)" />
-          <ellipse cx="345" cy="14" rx="9" ry="5" fill="url(#pinkPetal)" transform="rotate(30 345 14)" />
-          <ellipse cx="345" cy="15" rx="9.5" ry="5.5" fill="url(#softShadow)" transform="rotate(-30 345 15)" />
-          <ellipse cx="345" cy="14" rx="9" ry="5" fill="url(#pinkPetal)" transform="rotate(-30 345 14)" />
-          <ellipse cx="345" cy="15" rx="9.5" ry="5.5" fill="url(#softShadow)" transform="rotate(90 345 15)" />
-          <ellipse cx="345" cy="14" rx="9" ry="5" fill="url(#pinkPetal)" transform="rotate(90 345 14)" />
-          <ellipse cx="345" cy="15" rx="9.5" ry="5.5" fill="url(#softShadow)" transform="rotate(-90 345 15)" />
-          <ellipse cx="345" cy="14" rx="9" ry="5" fill="url(#pinkPetal)" transform="rotate(-90 345 14)" />
-          <circle cx="345" cy="14.5" r="4.5" fill="url(#softShadow)" />
-          <circle cx="345" cy="14" r="4" fill="url(#yellowCenter)" />
-          <circle cx="345" cy="14" r="2.5" fill="#f0a828" opacity="0.90" />
+          {/* Pink cosmos — right delicate */}
+          <ellipse cx="345" cy="14" rx="8" ry="4.5" fill="url(#pinkPetal)" transform="rotate(30 345 14)" />
+          <ellipse cx="345" cy="14" rx="8" ry="4.5" fill="url(#pinkPetal)" transform="rotate(-30 345 14)" />
+          <ellipse cx="345" cy="14" rx="8" ry="4.5" fill="url(#pinkPetal)" transform="rotate(90 345 14)" />
+          <ellipse cx="345" cy="14" rx="8" ry="4.5" fill="url(#pinkPetal)" transform="rotate(-90 345 14)" />
+          <circle cx="345" cy="14" r="3" fill="url(#yellowCenter)" />
+          <circle cx="345" cy="14" r="1.5" fill="#f0b830" opacity="0.7" />
+          <path d="M345 18 L345 35" stroke="url(#leafGreen)" strokeWidth="1" fill="none" opacity="0.35" />
+          <ellipse cx="348" cy="28" rx="8" ry="2.5" fill="url(#leafGreen)" transform="rotate(15 348 28)" />
 
           <ellipse cx="328" cy="22" rx="8" ry="4.5" fill="#f4a8b8" opacity="0.55" transform="rotate(20 328 22)" />
           <ellipse cx="328" cy="22" rx="8" ry="4.5" fill="#ec98a8" opacity="0.50" transform="rotate(-20 328 22)" />
@@ -242,15 +219,13 @@ export default async function RsvpPage({ searchParams }: PageProps) {
           <ellipse cx="302" cy="20" rx="5" ry="3" fill="#e88060" opacity="0.40" transform="rotate(-25 302 20)" />
           <circle cx="302" cy="20" r="2" fill="#f8d060" opacity="0.65" />
 
-          {/* Blue iris — right with depth */}
-          <ellipse cx="360" cy="13" rx="5.5" ry="9.5" fill="url(#softShadow)" transform="rotate(15 360 13)" />
-          <ellipse cx="360" cy="12" rx="5" ry="9" fill="url(#bluePetal)" transform="rotate(15 360 12)" />
-          <ellipse cx="357" cy="11" rx="5.5" ry="9.5" fill="url(#softShadow)" transform="rotate(-5 357 11)" />
-          <ellipse cx="357" cy="10" rx="5" ry="9" fill="url(#bluePetal)" transform="rotate(-5 357 10)" />
-          <ellipse cx="363" cy="16" rx="4.5" ry="7.5" fill="url(#softShadow)" transform="rotate(30 363 16)" />
-          <ellipse cx="363" cy="15" rx="4" ry="7" fill="url(#bluePetal)" transform="rotate(30 363 15)" />
-          <ellipse cx="360" cy="9" rx="3.5" ry="5.5" fill="url(#softShadow)" />
-          <ellipse cx="360" cy="8" rx="3" ry="5" fill="#9090e0" opacity="0.65" />
+          {/* Blue iris — right delicate */}
+          <ellipse cx="360" cy="12" rx="4.5" ry="8" fill="url(#bluePetal)" transform="rotate(15 360 12)" />
+          <ellipse cx="357" cy="10" rx="4.5" ry="8" fill="url(#bluePetal)" transform="rotate(-5 357 10)" />
+          <ellipse cx="363" cy="15" rx="3.5" ry="6.5" fill="url(#bluePetal)" transform="rotate(30 363 15)" />
+          <circle cx="360" cy="12" r="2" fill="#ffe8a0" opacity="0.5" />
+          <path d="M360 18 L360 36" stroke="url(#leafGreen)" strokeWidth="0.9" fill="none" opacity="0.35" />
+          <ellipse cx="362" cy="28" rx="10" ry="2.8" fill="url(#leafGreen)" transform="rotate(-5 362 28)" />
 
           {/* Yellow daffodil — right */}
           <ellipse cx="295" cy="8" rx="8" ry="4" fill="#f0d040" opacity="0.60" transform="rotate(20 295 8)" />
@@ -260,17 +235,12 @@ export default async function RsvpPage({ searchParams }: PageProps) {
           <ellipse cx="295" cy="8" rx="4" ry="3" fill="#f0a020" opacity="0.80" />
           <ellipse cx="295" cy="8" rx="2.5" ry="2" fill="#e09018" opacity="0.85" />
 
-          {/* Leaves — right cluster with natural gradient */}
-          <ellipse cx="350" cy="20.5" rx="14.5" ry="5.5" fill="url(#softShadow)" transform="rotate(35 350 20.5)" />
-          <ellipse cx="350" cy="20" rx="14" ry="5" fill="url(#leafGreen)" transform="rotate(35 350 20)" />
-          <ellipse cx="335" cy="30.5" rx="16.5" ry="5.5" fill="url(#softShadow)" transform="rotate(20 335 30.5)" />
-          <ellipse cx="335" cy="30" rx="16" ry="5" fill="url(#leafGreen)" transform="rotate(20 335 30)" />
-          <ellipse cx="370" cy="35.5" rx="12.5" ry="4.5" fill="url(#softShadow)" transform="rotate(50 370 35.5)" />
-          <ellipse cx="370" cy="35" rx="12" ry="4" fill="url(#leafGreen)" transform="rotate(50 370 35)" />
-          <ellipse cx="320" cy="28.5" rx="15.5" ry="5.5" fill="url(#softShadow)" transform="rotate(10 320 28.5)" />
-          <ellipse cx="320" cy="28" rx="15" ry="5" fill="url(#leafGreen)" transform="rotate(10 320 28)" />
-          <ellipse cx="305" cy="32.5" rx="13.5" ry="4.5" fill="url(#softShadow)" transform="rotate(-5 305 32.5)" />
-          <ellipse cx="305" cy="32" rx="13" ry="4" fill="url(#leafGreen)" transform="rotate(-5 305 32)" />
+          {/* Delicate leaves — right */}
+          <ellipse cx="350" cy="20" rx="12" ry="3.5" fill="url(#leafGreen)" transform="rotate(35 350 20)" />
+          <ellipse cx="335" cy="30" rx="14" ry="3.8" fill="url(#leafGreen)" transform="rotate(20 335 30)" />
+          <ellipse cx="370" cy="35" rx="10" ry="3" fill="url(#leafGreen)" transform="rotate(50 370 35)" />
+          <ellipse cx="320" cy="28" rx="13" ry="3.5" fill="url(#leafGreen)" transform="rotate(10 320 28)" />
+          <ellipse cx="305" cy="32" rx="11" ry="3.2" fill="url(#leafGreen)" transform="rotate(-5 305 32)" />
 
           {/* ─── CENTER TOP — lighter fill ─── */}
           {/* Scattered small flowers bridging left and right */}
@@ -326,57 +296,51 @@ export default async function RsvpPage({ searchParams }: PageProps) {
           preserveAspectRatio="xMidYMax slice"
         >
           <defs>
-            {/* Reuse gradients from top border */}
-            <radialGradient id="pinkPetal2" cx="30%" cy="30%">
-              <stop offset="0%" stopColor="#ffc0d0" stopOpacity="0.9" />
-              <stop offset="50%" stopColor="#f0a0b0" stopOpacity="0.7" />
-              <stop offset="100%" stopColor="#d88090" stopOpacity="0.4" />
+            {/* Soft watercolor gradients - delicate and translucent */}
+            <radialGradient id="pinkPetal2" cx="40%" cy="40%">
+              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.3" />
+              <stop offset="30%" stopColor="#ffc8d8" stopOpacity="0.5" />
+              <stop offset="70%" stopColor="#ff9bb8" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#ff88a8" stopOpacity="0.2" />
             </radialGradient>
-            <radialGradient id="purplePetal2" cx="35%" cy="35%">
-              <stop offset="0%" stopColor="#e8d0f0" stopOpacity="0.8" />
-              <stop offset="60%" stopColor="#c8a8d8" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#a888b8" stopOpacity="0.35" />
+            <radialGradient id="purplePetal2" cx="40%" cy="40%">
+              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.25" />
+              <stop offset="35%" stopColor="#d8c0f0" stopOpacity="0.45" />
+              <stop offset="75%" stopColor="#b898d8" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#a080c8" stopOpacity="0.15" />
             </radialGradient>
-            <radialGradient id="yellowPetal" cx="30%" cy="30%">
-              <stop offset="0%" stopColor="#fff8d0" stopOpacity="0.85" />
-              <stop offset="50%" stopColor="#f0d040" stopOpacity="0.7" />
-              <stop offset="100%" stopColor="#d0b020" stopOpacity="0.4" />
+            <radialGradient id="yellowPetal2" cx="40%" cy="40%">
+              <stop offset="0%" stopColor="#fffef8" stopOpacity="0.4" />
+              <stop offset="35%" stopColor="#ffe8a0" stopOpacity="0.55" />
+              <stop offset="75%" stopColor="#ffd060" stopOpacity="0.45" />
+              <stop offset="100%" stopColor="#f0b840" stopOpacity="0.2" />
             </radialGradient>
-            <radialGradient id="yellowCenter2" cx="40%" cy="40%">
-              <stop offset="0%" stopColor="#fff8e0" stopOpacity="0.95" />
-              <stop offset="40%" stopColor="#f8d060" stopOpacity="0.85" />
-              <stop offset="100%" stopColor="#e0a020" stopOpacity="0.7" />
+            <radialGradient id="yellowCenter2" cx="50%" cy="50%">
+              <stop offset="0%" stopColor="#fff8d0" stopOpacity="0.7" />
+              <stop offset="50%" stopColor="#ffd850" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#e0a830" stopOpacity="0.4" />
             </radialGradient>
-            <radialGradient id="bluePetal2" cx="35%" cy="30%">
-              <stop offset="0%" stopColor="#a8b8f0" stopOpacity="0.75" />
-              <stop offset="50%" stopColor="#7890d8" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#5870b0" stopOpacity="0.4" />
+            <radialGradient id="bluePetal2" cx="40%" cy="40%">
+              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.3" />
+              <stop offset="35%" stopColor="#c8d8f8" stopOpacity="0.5" />
+              <stop offset="75%" stopColor="#98b8e8" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#7898d8" stopOpacity="0.2" />
             </radialGradient>
-            <radialGradient id="leafGreen2" cx="40%" cy="35%">
-              <stop offset="0%" stopColor="#90d090" stopOpacity="0.6" />
-              <stop offset="60%" stopColor="#78b870" stopOpacity="0.45" />
-              <stop offset="100%" stopColor="#608858" stopOpacity="0.25" />
-            </radialGradient>
-            <radialGradient id="softShadow2">
-              <stop offset="0%" stopColor="#000000" stopOpacity="0.15" />
-              <stop offset="100%" stopColor="#000000" stopOpacity="0" />
+            <radialGradient id="leafGreen2" cx="45%" cy="40%">
+              <stop offset="0%" stopColor="#e8f8d8" stopOpacity="0.35" />
+              <stop offset="50%" stopColor="#a8d888" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#78b860" stopOpacity="0.25" />
             </radialGradient>
           </defs>
-          {/* Yellow daffodil — far left with depth */}
-          <ellipse cx="18" cy="81" rx="10.5" ry="5.5" fill="url(#softShadow2)" transform="rotate(-15 18 81)" />
-          <ellipse cx="18" cy="80" rx="10" ry="5" fill="url(#yellowPetal)" transform="rotate(-15 18 80)" />
-          <ellipse cx="18" cy="81" rx="10.5" ry="5.5" fill="url(#softShadow2)" transform="rotate(15 18 81)" />
-          <ellipse cx="18" cy="80" rx="10" ry="5" fill="url(#yellowPetal)" transform="rotate(15 18 80)" />
-          <ellipse cx="18" cy="81" rx="10.5" ry="5.5" fill="url(#softShadow2)" transform="rotate(60 18 81)" />
-          <ellipse cx="18" cy="80" rx="10" ry="5" fill="url(#yellowPetal)" transform="rotate(60 18 80)" />
-          <ellipse cx="18" cy="81" rx="10.5" ry="5.5" fill="url(#softShadow2)" transform="rotate(-60 18 81)" />
-          <ellipse cx="18" cy="80" rx="10" ry="5" fill="url(#yellowPetal)" transform="rotate(-60 18 80)" />
-          <circle cx="18" cy="80.5" r="5.5" fill="url(#softShadow2)" />
-          <circle cx="18" cy="80" r="5" fill="url(#yellowCenter2)" />
-          <circle cx="18" cy="80" r="3" fill="#e09018" opacity="0.90" />
-          <path d="M18 90 C16 108, 14 118, 12 128" stroke="url(#leafGreen2)" strokeWidth="2" strokeLinecap="round" />
-          <ellipse cx="10" cy="112.5" rx="10.5" ry="4" fill="url(#softShadow2)" transform="rotate(-25 10 112.5)" />
-          <ellipse cx="10" cy="112" rx="10" ry="3.5" fill="url(#leafGreen2)" transform="rotate(-25 10 112)" />
+          {/* Yellow daffodil — delicate */}
+          <ellipse cx="18" cy="80" rx="9" ry="4.5" fill="url(#yellowPetal2)" transform="rotate(-15 18 80)" />
+          <ellipse cx="18" cy="80" rx="9" ry="4.5" fill="url(#yellowPetal2)" transform="rotate(15 18 80)" />
+          <ellipse cx="18" cy="80" rx="9" ry="4.5" fill="url(#yellowPetal2)" transform="rotate(60 18 80)" />
+          <ellipse cx="18" cy="80" rx="9" ry="4.5" fill="url(#yellowPetal2)" transform="rotate(-60 18 80)" />
+          <circle cx="18" cy="80" r="3.5" fill="url(#yellowCenter2)" />
+          <circle cx="18" cy="80" r="1.8" fill="#d89020" opacity="0.7" />
+          <path d="M18 85 L18 120" stroke="url(#leafGreen2)" strokeWidth="1.2" fill="none" opacity="0.35" />
+          <ellipse cx="16" cy="105" rx="9" ry="3" fill="url(#leafGreen2)" transform="rotate(-25 16 105)" />
 
           {/* White/cream flower */}
           <ellipse cx="55" cy="75" rx="9" ry="5" fill="#f0ece0" opacity="0.70" transform="rotate(-25 55 75)" />
@@ -387,32 +351,23 @@ export default async function RsvpPage({ searchParams }: PageProps) {
           <circle cx="55" cy="75" r="2.5" fill="#f0d040" opacity="0.85" />
           <path d="M55 84 C54 100, 53 115, 52 128" stroke="#6aaa6a" strokeWidth="1.5" strokeLinecap="round" opacity="0.50" />
 
-          {/* Blue iris with depth */}
-          <ellipse cx="92" cy="69" rx="7.5" ry="12.5" fill="url(#softShadow2)" transform="rotate(-8 92 69)" />
-          <ellipse cx="92" cy="68" rx="7" ry="12" fill="url(#bluePetal2)" transform="rotate(-8 92 68)" />
-          <ellipse cx="96" cy="67" rx="7.5" ry="11.5" fill="url(#softShadow2)" transform="rotate(8 96 67)" />
-          <ellipse cx="96" cy="66" rx="7" ry="11" fill="url(#bluePetal2)" transform="rotate(8 96 66)" />
-          <ellipse cx="88" cy="71" rx="6.5" ry="10.5" fill="url(#softShadow2)" transform="rotate(-20 88 71)" />
-          <ellipse cx="88" cy="70" rx="6" ry="10" fill="url(#bluePetal2)" transform="rotate(-20 88 70)" />
-          <ellipse cx="92" cy="63" rx="4.5" ry="7.5" fill="url(#softShadow2)" />
-          <ellipse cx="92" cy="62" rx="4" ry="7" fill="#9898e8" opacity="0.70" />
-          <path d="M92 80 C91 98, 90 113, 89 128" stroke="url(#leafGreen2)" strokeWidth="2" strokeLinecap="round" />
-          <ellipse cx="85" cy="108.5" rx="9.5" ry="3.5" fill="url(#softShadow2)" transform="rotate(20 85 108.5)" />
-          <ellipse cx="85" cy="108" rx="9" ry="3" fill="url(#leafGreen2)" transform="rotate(20 85 108)" />
+          {/* Blue iris — delicate */}
+          <ellipse cx="92" cy="68" rx="6" ry="10" fill="url(#bluePetal2)" transform="rotate(-8 92 68)" />
+          <ellipse cx="96" cy="66" rx="6" ry="9.5" fill="url(#bluePetal2)" transform="rotate(8 96 66)" />
+          <ellipse cx="88" cy="70" rx="5" ry="8.5" fill="url(#bluePetal2)" transform="rotate(-20 88 70)" />
+          <circle cx="92" cy="68" r="2.5" fill="#ffe8a0" opacity="0.5" />
+          <path d="M92 78 L92 122" stroke="url(#leafGreen2)" strokeWidth="1.1" fill="none" opacity="0.35" />
+          <ellipse cx="90" cy="102" rx="10" ry="3.2" fill="url(#leafGreen2)" transform="rotate(20 90 102)" />
 
-          {/* Pink cosmos with realistic petals */}
-          <ellipse cx="128" cy="73" rx="11.5" ry="6.5" fill="url(#softShadow2)" transform="rotate(-30 128 73)" />
-          <ellipse cx="128" cy="72" rx="11" ry="6" fill="url(#pinkPetal2)" transform="rotate(-30 128 72)" />
-          <ellipse cx="128" cy="73" rx="11.5" ry="6.5" fill="url(#softShadow2)" transform="rotate(30 128 73)" />
-          <ellipse cx="128" cy="72" rx="11" ry="6" fill="url(#pinkPetal2)" transform="rotate(30 128 72)" />
-          <ellipse cx="128" cy="73" rx="11.5" ry="6.5" fill="url(#softShadow2)" transform="rotate(90 128 73)" />
-          <ellipse cx="128" cy="72" rx="11" ry="6" fill="url(#pinkPetal2)" transform="rotate(90 128 72)" />
-          <ellipse cx="128" cy="73" rx="11.5" ry="6.5" fill="url(#softShadow2)" transform="rotate(-90 128 73)" />
-          <ellipse cx="128" cy="72" rx="11" ry="6" fill="url(#pinkPetal2)" transform="rotate(-90 128 72)" />
-          <circle cx="128" cy="72.5" r="5" fill="url(#softShadow2)" />
-          <circle cx="128" cy="72" r="4.5" fill="url(#yellowCenter2)" />
-          <circle cx="128" cy="72" r="2.8" fill="#f0a828" opacity="0.90" />
-          <path d="M128 83 C127 100, 126 115, 125 128" stroke="url(#leafGreen2)" strokeWidth="2" strokeLinecap="round" />
+          {/* Pink cosmos — delicate */}
+          <ellipse cx="128" cy="72" rx="10" ry="5.5" fill="url(#pinkPetal2)" transform="rotate(-30 128 72)" />
+          <ellipse cx="128" cy="72" rx="10" ry="5.5" fill="url(#pinkPetal2)" transform="rotate(30 128 72)" />
+          <ellipse cx="128" cy="72" rx="10" ry="5.5" fill="url(#pinkPetal2)" transform="rotate(90 128 72)" />
+          <ellipse cx="128" cy="72" rx="10" ry="5.5" fill="url(#pinkPetal2)" transform="rotate(-90 128 72)" />
+          <circle cx="128" cy="72" r="3.5" fill="url(#yellowCenter2)" />
+          <circle cx="128" cy="72" r="1.8" fill="#f0b830" opacity="0.7" />
+          <path d="M128 78 L128 122" stroke="url(#leafGreen2)" strokeWidth="1.2" fill="none" opacity="0.35" />
+          <ellipse cx="125" cy="100" rx="11" ry="3.2" fill="url(#leafGreen2)" transform="rotate(-8 125 100)" />
 
           {/* Lavender wisteria small bunch with depth */}
           <ellipse cx="162" cy="71" rx="6.5" ry="4.5" fill="url(#softShadow2)" transform="rotate(-10 162 71)" />
