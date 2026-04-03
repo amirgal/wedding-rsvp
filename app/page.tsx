@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation'
 import { headers } from 'next/headers'
-import Image from 'next/image'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { RsvpForm } from '@/components/rsvp-form'
 import WeddingLanding from '@/components/wedding-landing'
@@ -49,15 +48,12 @@ export default async function RsvpPage({ searchParams }: PageProps) {
       {/* ═══════════════════════════════════════════════
           TOP FLORAL BORDER — full width, dense clusters
           ═══════════════════════════════════════════════ */}
-      <div className="w-full pointer-events-none relative" aria-hidden style={{ lineHeight: 0, height: '60px', overflow: 'hidden' }}>
-        <Image
+      <div className="w-full pointer-events-none relative overflow-hidden" aria-hidden style={{ lineHeight: 0, maxHeight: 'clamp(55px, 11vw, 160px)' }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src="/flowers/flowersTop.svg"
           alt=""
-          className="absolute"
-          style={{ left: '0%', top: '-27px', height: 'auto', opacity: 0.75 }}
-          width={1920}
-          height={60}
-          priority
+          style={{ width: '100%', height: 'auto', display: 'block', opacity: 0.85, marginTop: '-13%' }}
         />
       </div>
 
