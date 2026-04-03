@@ -9,6 +9,91 @@ interface RsvpFormProps {
   token: string
   existingResponse: Response | null
   isEditing: boolean
+  inviteName: string
+}
+
+// Wedding rings SVG — watercolor gold style
+function WeddingRings() {
+  return (
+    <svg
+      viewBox="0 0 120 70"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      width="110"
+      height="65"
+      aria-hidden
+    >
+      {/* Left ring — outer glow layers */}
+      <ellipse cx="44" cy="38" rx="22" ry="10" fill="#f0c840" opacity="0.15" />
+      <ellipse cx="44" cy="38" rx="20" ry="9" fill="#e8b828" opacity="0.20" />
+      {/* Left ring band */}
+      <ellipse cx="44" cy="38" rx="18" ry="8" fill="none" stroke="#d4a020" strokeWidth="5" opacity="0.55" />
+      <ellipse cx="44" cy="38" rx="18" ry="8" fill="none" stroke="#f0c840" strokeWidth="3" opacity="0.65" />
+      <ellipse cx="44" cy="38" rx="18" ry="8" fill="none" stroke="#f8e090" strokeWidth="1.5" opacity="0.50" />
+      {/* Left ring highlight */}
+      <ellipse cx="36" cy="33" rx="7" ry="3" fill="#f8f0c0" opacity="0.30" transform="rotate(-20 36 33)" />
+      {/* Left ring engraving detail */}
+      <ellipse cx="44" cy="38" rx="18" ry="8" fill="none" stroke="#b08818" strokeWidth="1" strokeDasharray="3 4" opacity="0.30" />
+
+      {/* Right ring — slightly overlapping, in front */}
+      <ellipse cx="76" cy="38" rx="22" ry="10" fill="#f0c840" opacity="0.15" />
+      <ellipse cx="76" cy="38" rx="20" ry="9" fill="#e8b828" opacity="0.20" />
+      {/* Right ring band */}
+      <ellipse cx="76" cy="38" rx="18" ry="8" fill="none" stroke="#c89818" strokeWidth="5" opacity="0.55" />
+      <ellipse cx="76" cy="38" rx="18" ry="8" fill="none" stroke="#e8b828" strokeWidth="3" opacity="0.65" />
+      <ellipse cx="76" cy="38" rx="18" ry="8" fill="none" stroke="#f8e898" strokeWidth="1.5" opacity="0.50" />
+      {/* Right ring highlight */}
+      <ellipse cx="68" cy="33" rx="7" ry="3" fill="#f8f0c0" opacity="0.28" transform="rotate(-20 68 33)" />
+      {/* Right ring engraving detail */}
+      <ellipse cx="76" cy="38" rx="18" ry="8" fill="none" stroke="#a07810" strokeWidth="1" strokeDasharray="3 4" opacity="0.28" />
+
+      {/* Shadow beneath */}
+      <ellipse cx="60" cy="50" rx="32" ry="5" fill="#c8a020" opacity="0.08" />
+    </svg>
+  )
+}
+
+// Small flower cluster for confirmation state
+function SmallFlowerCluster() {
+  return (
+    <svg
+      viewBox="0 0 140 60"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      width="130"
+      height="55"
+      aria-hidden
+    >
+      {/* Pink cosmos */}
+      <ellipse cx="30" cy="28" rx="9" ry="5" fill="#f0a0b0" opacity="0.60" transform="rotate(-30 30 28)" />
+      <ellipse cx="30" cy="28" rx="9" ry="5" fill="#f0a0b0" opacity="0.55" transform="rotate(30 30 28)" />
+      <ellipse cx="30" cy="28" rx="9" ry="5" fill="#e890a0" opacity="0.50" transform="rotate(90 30 28)" />
+      <ellipse cx="30" cy="28" rx="9" ry="5" fill="#f0a0b0" opacity="0.52" transform="rotate(-90 30 28)" />
+      <circle cx="30" cy="28" r="4" fill="#f8d060" opacity="0.75" />
+      <circle cx="30" cy="28" r="2.5" fill="#f0a828" opacity="0.85" />
+
+      {/* Lavender wisteria cluster */}
+      <ellipse cx="60" cy="22" rx="6" ry="4" fill="#c8a8d8" opacity="0.55" transform="rotate(-10 60 22)" />
+      <ellipse cx="66" cy="18" rx="5" ry="3.5" fill="#b896c8" opacity="0.50" />
+      <ellipse cx="56" cy="30" rx="5" ry="7" fill="#d4b4e0" opacity="0.48" />
+      <ellipse cx="64" cy="32" rx="4" ry="6" fill="#c0a0d0" opacity="0.50" transform="rotate(-5 64 32)" />
+      <ellipse cx="70" cy="26" rx="4" ry="6" fill="#c8a8d8" opacity="0.45" transform="rotate(10 70 26)" />
+
+      {/* Yellow daffodil */}
+      <ellipse cx="100" cy="26" rx="9" ry="5" fill="#f0d040" opacity="0.62" transform="rotate(-20 100 26)" />
+      <ellipse cx="100" cy="26" rx="9" ry="5" fill="#e8c838" opacity="0.57" transform="rotate(20 100 26)" />
+      <ellipse cx="100" cy="26" rx="9" ry="5" fill="#f0d040" opacity="0.52" transform="rotate(70 100 26)" />
+      <ellipse cx="100" cy="26" rx="9" ry="5" fill="#e8c838" opacity="0.54" transform="rotate(-70 100 26)" />
+      <ellipse cx="100" cy="26" rx="4.5" ry="3.5" fill="#f0a020" opacity="0.82" />
+      <ellipse cx="100" cy="26" rx="2.8" ry="2.2" fill="#e09018" opacity="0.88" />
+
+      {/* Leaves */}
+      <ellipse cx="20" cy="38" rx="14" ry="4" fill="#78b870" opacity="0.38" transform="rotate(-15 20 38)" />
+      <ellipse cx="50" cy="44" rx="16" ry="4" fill="#6aaa6a" opacity="0.35" transform="rotate(-5 50 44)" />
+      <ellipse cx="82" cy="40" rx="14" ry="4" fill="#72b472" opacity="0.36" transform="rotate(10 82 40)" />
+      <ellipse cx="116" cy="38" rx="12" ry="3.5" fill="#78b870" opacity="0.34" transform="rotate(-12 116 38)" />
+    </svg>
+  )
 }
 
 function CounterField({
@@ -25,10 +110,12 @@ function CounterField({
   min: number
 }) {
   return (
-    <div className="flex items-center justify-between py-5 px-3 border-b border-[var(--warm-border,oklch(0.882_0.013_72))] last:border-b-0">
+    <div className="flex items-center justify-between py-4 px-2 border-b last:border-b-0"
+      style={{ borderColor: 'rgba(200,170,130,0.25)' }}
+    >
       <div>
-        <p className="font-display text-[1.15rem] font-light text-[var(--color-ink)]">{label}</p>
-        <p className="text-xs text-[var(--color-stone)] mt-0.5 font-body">{sublabel}</p>
+        <p className="font-display text-[1.1rem] font-light" style={{ color: '#3a2e22' }}>{label}</p>
+        <p className="text-xs font-body mt-0.5" style={{ color: '#8a7a6a' }}>{sublabel}</p>
       </div>
       <div className="flex items-center gap-4">
         <button
@@ -36,10 +123,14 @@ function CounterField({
           className="stepper-btn"
           onClick={() => onChange(value + 1)}
           aria-label={`הוסף ${label}`}
+          style={{ borderColor: 'rgba(200,160,100,0.5)', color: '#6a5a4a' }}
         >
           +
         </button>
-        <span className="font-display text-3xl font-light w-7 text-center leading-none text-[var(--color-ink)]">
+        <span
+          className="font-display w-7 text-center leading-none"
+          style={{ fontSize: '2.5rem', color: '#3a2e22', fontWeight: 300 }}
+        >
           {value}
         </span>
         <button
@@ -48,6 +139,7 @@ function CounterField({
           onClick={() => onChange(Math.max(min, value - 1))}
           disabled={value <= min}
           aria-label={`הפחת ${label}`}
+          style={{ borderColor: 'rgba(200,160,100,0.5)', color: '#6a5a4a' }}
         >
           −
         </button>
@@ -56,7 +148,7 @@ function CounterField({
   )
 }
 
-export function RsvpForm({ token, existingResponse, isEditing }: RsvpFormProps) {
+export function RsvpForm({ token, existingResponse, isEditing, inviteName }: RsvpFormProps) {
   const [adultCount, setAdultCount] = useState(existingResponse?.adult_count ?? 1)
   const [kidCount, setKidCount] = useState(existingResponse?.kid_count ?? 0)
   const [loading, setLoading] = useState<'attending' | 'not-attending' | null>(null)
@@ -65,9 +157,10 @@ export function RsvpForm({ token, existingResponse, isEditing }: RsvpFormProps) 
     existingResponse ? !existingResponse.attending : false
   )
 
+  const firstName = inviteName.split(' ')[0]
+
   const submit = async (attending: boolean) => {
     setLoading(attending ? 'attending' : 'not-attending')
-
     try {
       const res = await fetch('/api/rsvp', {
         method: 'POST',
@@ -75,12 +168,10 @@ export function RsvpForm({ token, existingResponse, isEditing }: RsvpFormProps) 
         body: JSON.stringify({ token, attending, adult_count: adultCount, kid_count: kidCount }),
       })
       const data = await res.json()
-
       if (!res.ok || !data.success) {
         toast.error(data.error ?? 'משהו השתבש. נא נסו שנית.')
         return
       }
-
       setDidNotAttend(!attending)
       setSubmitted(true)
     } catch {
@@ -92,27 +183,18 @@ export function RsvpForm({ token, existingResponse, isEditing }: RsvpFormProps) 
 
   if (submitted) {
     return (
-      <div className="text-center py-8 animate-fade-in">
-        <div className="w-12 h-12 rounded-full border border-[var(--color-forest)] flex items-center justify-center mx-auto mb-6">
-          <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5 stroke-[var(--color-forest)]" strokeWidth={1.5}>
-            {didNotAttend ? (
-              <>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l8 8" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14 6l-8 8" />
-              </>
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5l4 4 7-7" />
-            )}
-          </svg>
-        </div>
-        <p className="font-display text-3xl font-light text-[var(--color-ink)] leading-snug">
+      <div dir="rtl" className="text-center py-8 animate-fade-in flex flex-col items-center gap-4">
+        <SmallFlowerCluster />
+        <p
+          className="font-handwriting leading-snug"
+          style={{ fontSize: '2.4rem', color: '#3a2e22' }}
+        >
           {didNotAttend ? 'תודה על העדכון.' : 'מחכים לחגוג יחד איתכם!'}
         </p>
-        <p className="mt-3 text-sm text-[var(--color-stone)] font-body">
+        <p className="font-body text-sm" style={{ color: '#8a7a6a' }}>
           {isEditing ? 'תגובתכם עודכנה.' : didNotAttend ? 'תגובתכם התקבלה.' : 'אישורכם התקבל.'}
         </p>
-        <br />
-        <p className="mt-3 text-sm text-[var(--color-stone)] font-body">
+        <p className="font-body text-sm" style={{ color: '#a09080' }}>
           במידת הצורך ניתן לעדכן את תשובתכם.
         </p>
       </div>
@@ -120,14 +202,55 @@ export function RsvpForm({ token, existingResponse, isEditing }: RsvpFormProps) 
   }
 
   return (
-    <div className="space-y-8">
+    <div dir="rtl" className="flex flex-col items-center text-center">
+
+      {/* Wedding rings */}
+      <div className="mt-2 mb-3 animate-fade-in">
+        <WeddingRings />
+      </div>
+
+      {/* Name greeting — large handwriting */}
+      <div className="animate-fade-up mb-1">
+        <h1
+          className="font-handwriting leading-tight"
+          style={{ fontSize: '3.8rem', color: '#2a2018', letterSpacing: '0.02em' }}
+        >
+          שלום {firstName},
+        </h1>
+      </div>
+
+      {/* Invitation text — handwriting style, italic */}
+      <div className="animate-fade-up delay-100 mb-3 px-4">
+        <p
+          className="font-handwriting leading-relaxed"
+          style={{ fontSize: '1.25rem', color: '#4a3e30' }}
+        >
+          אנחנו מתרגשים להזמין אתכם לחגוג איתנו את יום חתונתנו.
+        </p>
+      </div>
+
+      {/* Date-style accent — rose pink */}
+      <div className="animate-fade-up delay-200 mb-6">
+        <p
+          className="font-display font-bold tracking-wide"
+          style={{ fontSize: '1.3rem', color: '#d4607a' }}
+        >
+          נשמח לדעת — מגיעים?
+        </p>
+      </div>
+
+      {/* Editing notice */}
       {isEditing && (
-        <p className="text-sm text-[var(--color-stone)] italic font-body border-r-2 border-[var(--color-forest)] pr-4 py-1">
+        <p
+          className="font-body text-sm italic mb-5 px-4"
+          style={{ color: '#8a7a6a' }}
+        >
           כבר שלחתם אישור. ניתן לעדכן את תגובתכם למטה.
         </p>
       )}
 
-      <div className="border border-[var(--color-warm-border)] rounded-lg overflow-hidden bg-white/60">
+      {/* Counter widget */}
+      <div className="w-full animate-fade-up delay-300 mb-6">
         <CounterField
           label="מבוגרים"
           sublabel="גיל 7 ומעלה"
@@ -144,13 +267,24 @@ export function RsvpForm({ token, existingResponse, isEditing }: RsvpFormProps) 
         />
       </div>
 
-      <div className="space-y-3 pt-2">
+      {/* Buttons */}
+      <div className="w-full animate-fade-up delay-400 space-y-3">
         <button
           onClick={() => submit(true)}
           disabled={!!loading}
-          className="w-full py-4 px-6 bg-[var(--color-forest)] text-white font-body font-medium
-                     tracking-wide rounded-lg hover:bg-[oklch(0.33_0.065_152)] transition-colors
-                     disabled:opacity-60 disabled:cursor-not-allowed text-sm cursor-pointer"
+          className="w-full font-body font-medium tracking-wide disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer transition-all"
+          style={{
+            padding: '0.95rem 1.5rem',
+            background: '#d4607a',
+            color: 'white',
+            borderRadius: '0.6rem',
+            fontSize: '1rem',
+            letterSpacing: '0.06em',
+            border: 'none',
+            boxShadow: '0 2px 12px rgba(212,96,122,0.25)',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.background = '#c04e68' }}
+          onMouseLeave={e => { e.currentTarget.style.background = '#d4607a' }}
         >
           {loading === 'attending' ? 'שומר...' : isEditing ? 'עדכון אישור' : 'אישור הגעה'}
         </button>
@@ -158,9 +292,16 @@ export function RsvpForm({ token, existingResponse, isEditing }: RsvpFormProps) 
         <button
           onClick={() => submit(false)}
           disabled={!!loading}
-          className="btn-decline w-full py-3 px-6 text-[var(--color-stone)] font-body font-normal text-sm
-                     border border-[var(--color-warm-border)] rounded-lg
-                     transition-colors disabled:opacity-50 cursor-pointer"
+          className="w-full font-body font-normal text-sm disabled:opacity-50 cursor-pointer transition-colors"
+          style={{
+            padding: '0.65rem',
+            background: 'transparent',
+            border: 'none',
+            color: '#9a8a7a',
+            textDecoration: 'underline',
+            textDecorationColor: 'rgba(154,138,122,0.4)',
+            textUnderlineOffset: '3px',
+          }}
         >
           {loading === 'not-attending' ? 'שומר...' : 'לא אוכל להגיע'}
         </button>
