@@ -106,10 +106,14 @@ export function RsvpForm({ token, existingResponse, isEditing }: RsvpFormProps) 
           </svg>
         </div>
         <p className="font-display text-3xl font-light text-[var(--color-ink)] leading-snug">
-          {didNotAttend ? 'מצטערים שלא נזכה לראותכם ביום המיוחד.' : 'מחכים לחגוג יחד איתכם!'}
+          {didNotAttend ? 'תודה על העדכון.' : 'מחכים לחגוג יחד איתכם!'}
         </p>
         <p className="mt-3 text-sm text-[var(--color-stone)] font-body">
           {isEditing ? 'תגובתכם עודכנה.' : didNotAttend ? 'תגובתכם התקבלה.' : 'אישורכם התקבל.'}
+        </p>
+        <br />
+        <p className="mt-3 text-sm text-[var(--color-stone)] font-body">
+          במידת הצורך ניתן לעדכן את תשובתכם.
         </p>
       </div>
     )

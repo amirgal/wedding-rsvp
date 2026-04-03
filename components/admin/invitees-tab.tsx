@@ -9,7 +9,7 @@ import { Trash2, Plus, Upload, UserPlus, FileDown } from 'lucide-react'
 import * as XLSX from 'xlsx'
 
 const DEFAULT_TEMPLATE =
-  '{{name}} היקר/ה,\n\nאנחנו שמחים להזמין אותך להשתתף איתנו ביום המיוחד שלנו. אנא השתמש בקישור למטה כדי להשיב:\n\n{{link}}\n\nבחום,\nאמיר ומאיה'
+  '{{name}} היקר/ה,\n\nאנחנו שמחים להזמין אותך להשתתף איתנו ביום המיוחד שלנו. נשמח לדעת אם נראה אתכם שם:\n\n{{link}}\n\nאוהבים\nאמיר ומאיה'
 
 interface InviteesTabProps {
   invites: InviteWithResponse[]

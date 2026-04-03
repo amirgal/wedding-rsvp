@@ -81,14 +81,14 @@ export default async function RsvpPage({ searchParams }: PageProps) {
         {/* Invitation text */}
         <div className="animate-fade-up delay-200 mb-12">
           <p className="font-display text-xl font-light text-[var(--color-stone)] leading-relaxed">
-            בשמחה ובאהבה אנו מזמינים אתכם לחגוג עמנו את יום חתונתנו.
+            אנחנו מתרגשים להזמין אתכם לחגוג איתנו את יום חתונתנו.
           </p>
         </div>
 
         {/* RSVP Form */}
         <div className="animate-fade-up delay-400">
-          <p className="font-body text-[0.72rem] tracking-[0.1em] text-[var(--color-stone)] mb-6">
-            נא לאשר הגעה
+          <p className="font-body text-[1.1rem] tracking-[0.1em] text-[var(--color-stone)] mb-6">
+            נשמח לדעת - מגיעים?
           </p>
           <RsvpForm
             inviteId={invite.id}
