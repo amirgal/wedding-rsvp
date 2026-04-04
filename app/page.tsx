@@ -48,12 +48,12 @@ export default async function RsvpPage({ searchParams }: PageProps) {
       {/* ═══════════════════════════════════════════════
           TOP FLORAL BORDER — full width, dense clusters
           ═══════════════════════════════════════════════ */}
-      <div className="w-full pointer-events-none relative overflow-hidden" aria-hidden style={{ lineHeight: 0, maxHeight: 'clamp(55px, 11vw, 160px)' }}>
+      <div className="w-full pointer-events-none" aria-hidden style={{ lineHeight: 0 }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/flowers/flowersTop.svg"
+          src="/flowers/flowers.webp"
           alt=""
-          style={{ width: '100%', height: 'auto', display: 'block', opacity: 0.85, marginTop: '-13%' }}
+          style={{ width: '100%', height: 'auto', display: 'block', opacity: 0.85 }}
         />
       </div>
 
