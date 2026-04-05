@@ -175,8 +175,23 @@ export function RsvpForm({ token, existingResponse, isEditing, inviteName }: Rsv
 
   if (submitted) {
     return (
-      <div dir="rtl" className="text-center py-8 animate-fade-in flex flex-col items-center gap-4">
+      <div dir="rtl" className="text-center py-8 animate-fade-in delay 100 flex flex-col items-center gap-4">
         <SmallFlowerCluster />
+        {/* Date & venue */}
+        <div className="mb-2">
+          <p
+            className="font-display font-bold tracking-wide"
+            style={{ fontSize: '1.4rem', color: '#d4607a' }}
+          >
+            שישי, 12 ליוני בשעה 11:00
+          </p>
+          <p
+            className="font-display"
+            style={{ fontSize: '1rem', color: '#b8860b' }}
+          >
+            בית גלילי, קיבוץ נען
+          </p>
+        </div>
         <p
           className="font-handwriting leading-snug"
           style={{ fontSize: '2.4rem', color: '#3a2e22' }}
@@ -245,7 +260,7 @@ export function RsvpForm({ token, existingResponse, isEditing, inviteName }: Rsv
       {/* Editing notice */}
       {isEditing && (
         <p
-          className="font-body text-sm italic mb-5 px-4"
+          className="animate-fade-up delay-300 font-body text-sm italic mb-5 px-4"
           style={{ color: '#8a7a6a' }}
         >
           כבר שלחתם אישור. ניתן לעדכן את תגובתכם למטה.
