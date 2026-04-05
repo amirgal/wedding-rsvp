@@ -216,8 +216,24 @@ export function RsvpForm({ token, existingResponse, isEditing, inviteName }: Rsv
         </p>
       </div>
 
-      {/* Date-style accent — rose pink */}
-      <div className="animate-fade-up delay-200 mb-6">
+      {/* Date & venue */}
+      <div className="animate-fade-up delay-200 mb-2">
+        <p
+          className="font-display font-bold tracking-wide"
+          style={{ fontSize: '1.4rem', color: '#d4607a' }}
+        >
+          שישי, 12 ליוני בשעה 11:00
+        </p>
+        <p
+          className="font-display"
+          style={{ fontSize: '1rem', color: '#b8860b' }}
+        >
+          בית גלילי, קיבוץ נען
+        </p>
+      </div>
+
+      {/* RSVP prompt */}
+      <div className="animate-fade-up delay-300 mb-6">
         <p
           className="font-display font-bold tracking-wide"
           style={{ fontSize: '1.3rem', color: '#d4607a' }}
