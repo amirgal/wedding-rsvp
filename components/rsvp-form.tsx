@@ -149,7 +149,7 @@ export function RsvpForm({ token, existingResponse, isEditing, inviteName }: Rsv
     existingResponse ? !existingResponse.attending : false
   )
 
-  const firstName = inviteName.split(' ')[0]
+  const name = inviteName.trim()
 
   const submit = async (attending: boolean) => {
     setLoading(attending ? 'attending' : 'not-attending')
@@ -217,7 +217,7 @@ export function RsvpForm({ token, existingResponse, isEditing, inviteName }: Rsv
           className="font-handwriting leading-tight"
           style={{ fontSize: '3.8rem', color: '#2a2018', letterSpacing: '0.02em' }}
         >
-          שלום {firstName},
+          שלום {name},
         </h1>
       </div>
 
